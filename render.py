@@ -25,3 +25,5 @@ for n in range(FPS*D):
  f2=ImageFont.truetype(R,40); box=d.textbbox((0,0),sub,font=f2); d.text(((W-(box[2]-box[0]))/2,1390),sub,font=f2,fill=(230,238,255))
  d.rounded_rectangle((90,1570,90+int(900*t/D),1594),12,fill=(255,210,85))
  im.save(f"frames/{n:05d}.png")
+
+# qa-rerun-marker
