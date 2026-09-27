@@ -1,0 +1,13 @@
+{
+  "job_key": "20260927-1500-ai-hallucination",
+  "title": "Why AI Can Sound Confident and Still Be Wrong 🤖 #Shorts",
+  "description": "AI language models can generate fluent answers without independently knowing whether every claim is true. #Shorts #AI #Technology",
+  "tags": ["Shorts","AI","Technology","Interesting Facts"],
+  "category_id": "28",
+  "script": "An AI can sound extremely confident and still give you a wrong answer. Language models generate responses by predicting useful sequences of words from patterns learned during training. Fluent wording does not automatically prove that every fact is correct. This is why important claims should be checked against reliable sources, especially when the answer involves money, health, law, or other high stakes decisions. Confidence in the writing style is not the same thing as verified accuracy.",
+  "scenes": [
+    {"text":"CONFIDENT DOESN'T MEAN CORRECT","visual":"abstract AI chat interface with a bold answer"},
+    {"text":"FLUENCY IS NOT VERIFICATION","visual":"flowing words turning into question marks"},
+    {"text":"CHECK IMPORTANT CLAIMS","visual":"documents with verification check marks"}
+  ]
+}
