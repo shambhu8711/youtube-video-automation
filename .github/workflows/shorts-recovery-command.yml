@@ -43,6 +43,12 @@ jobs:
         if: ${{ hashFiles('no_fresh_job') == '' }}
         run: |
           ffprobe -v error -show_entries stream=codec_type,width,height -show_entries format=duration -of json short.mp4 > ffprobe.json
+          ffmpeg -y -i short.mp4 -vn -ac 1 -ar 16000 exact_audio.wav
+          python - <<'PY'
+          import json
+          j=json.load(open("selected_job.json",encoding="utf-8"))
+          open("intended.txt","w",encoding="utf-8").write(j["script"])
+          PY
           python qa_exact.py
       - name: Upload directly to YouTube
         if: ${{ hashFiles('no_fresh_job') == '' }}
