@@ -1,6 +1,11 @@
 name: Daily Long Form Video
 on:
   workflow_dispatch:
+    inputs:
+      slot:
+        description: 'IST slot to recover: 1030, 1530, or 2030'
+        required: false
+        type: string
   schedule:
     # 10:30, 15:30 and 20:30 IST = 05:00, 10:00 and 15:00 UTC
     - cron: '0 5,10,15 * * *'
@@ -21,15 +26,19 @@ jobs:
           sudo apt-get install -y ffmpeg
           pip install pillow edge-tts google-api-python-client google-auth
       - name: Ensure daily queue and select this edition
+        env:
+          MANUAL_SLOT: ${{ inputs.slot }}
         run: |
           python generate_daily_jobs.py
           python - <<'PY'
           import glob,os,shutil
           from datetime import datetime,timezone,timedelta
           now=datetime.now(timezone(timedelta(hours=5,minutes=30)))
+          manual=os.environ.get("MANUAL_SLOT","").strip()
           mins=now.hour*60+now.minute
           slots=[(10*60+30,"1030"),(15*60+30,"1530"),(20*60+30,"2030")]
-          slot=min(slots,key=lambda x:abs(x[0]-mins))[1]
+          slot=manual or min(slots,key=lambda x:abs(x[0]-mins))[1]
+          if slot not in {"1030","1530","2030"}: raise SystemExit("Invalid slot "+slot)
           p=f"longform/jobs/{now:%Y%m%d}-{slot}.json"
           if not os.path.exists(p): raise SystemExit("Missing long-form edition "+p)
           shutil.copyfile(p,"longform_job.json")
