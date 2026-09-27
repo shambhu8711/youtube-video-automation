@@ -16,6 +16,11 @@ for p in glob.glob("state/uploads/*.json"):
 if manual:
     p=manual if manual.startswith("jobs/") else "jobs/"+manual
     if p not in files: raise SystemExit("Requested job not found: "+p)
+    mj=json.load(open(p,encoding="utf-8"))
+    if mj.get("job_key") in done:
+        print("MANUAL_JOB_ALREADY_DONE",mj.get("job_key"))
+        open("no_fresh_job","w").write("1")
+        raise SystemExit(0)
 else:
     now=datetime.now(timezone(timedelta(hours=5,minutes=30)))
     candidates=[]
