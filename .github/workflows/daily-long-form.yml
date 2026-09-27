@@ -2,7 +2,8 @@ name: Daily Long Form Video
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 4 * * *'
+    # 10:30, 15:30 and 20:30 IST = 05:00, 10:00 and 15:00 UTC
+    - cron: '0 5,10,15 * * *'
 permissions:
   contents: read
 concurrency:
