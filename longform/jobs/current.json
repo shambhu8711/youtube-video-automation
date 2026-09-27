@@ -1,0 +1,44 @@
+{
+  "key": "20260927-longform-ai-business",
+  "title": "7 AI Business Models You Can Start Understanding Today",
+  "series": "Daily Growth Video",
+  "script": "Artificial intelligence is changing how small businesses create, sell, analyze, and support customers. In this video we will examine seven practical AI-enabled business models, what value each model creates, and what makes the model difficult to execute well. First is AI-assisted content production. The opportunity is not simply generating text or images. A useful service combines research, editing, brand consistency, quality control, and measurable business outcomes. Second is workflow automation. Businesses often repeat tasks across email, spreadsheets, customer relationship systems, reporting tools, and internal approvals. An automation service maps those processes and reduces manual work while keeping human review where it matters. Third is specialized research and analysis. General AI output is easy to obtain, but reliable domain-specific research requires good sources, verification, structured reasoning, and clear communication. Fourth is customer support enablement. AI can help categorize requests, draft responses, search knowledge bases, and route complex cases to people. The business value comes from faster resolution without sacrificing accuracy. Fifth is sales enablement. AI can organize account research, prepare meeting briefs, summarize calls, and draft follow-up material. The important principle is augmentation rather than uncontrolled automated outreach. Sixth is education and training. AI can help create personalized exercises, explanations, assessments, and learning paths, while subject-matter experts maintain quality. Seventh is vertical software. Instead of building a generic chatbot, a company can solve one narrow workflow for one industry and integrate AI only where it creates real leverage. Across all seven models, sustainable value comes from solving a real problem, verifying output, protecting customer data, and building a repeatable process. AI itself is not the business model. The business model is the useful outcome delivered to a specific customer. If you are evaluating an AI business idea, start with the customer problem, define the measurable result, and then decide which parts AI can improve.",
+  "chapters": [
+    {
+      "title": "AI BUSINESS MODELS",
+      "onscreen": "7 practical models\\nValue first. AI second."
+    },
+    {
+      "title": "1. CONTENT PRODUCTION",
+      "onscreen": "Research • Editing • Brand consistency\\nSell outcomes, not raw generations."
+    },
+    {
+      "title": "2. WORKFLOW AUTOMATION",
+      "onscreen": "Map repetitive processes\\nAutomate carefully • Keep human review"
+    },
+    {
+      "title": "3. SPECIALIZED RESEARCH",
+      "onscreen": "Sources • Verification • Structure\\nDomain expertise remains valuable."
+    },
+    {
+      "title": "4. CUSTOMER SUPPORT",
+      "onscreen": "Classify • Search • Draft • Route\\nOptimize resolution quality."
+    },
+    {
+      "title": "5. SALES ENABLEMENT",
+      "onscreen": "Research • Briefs • Summaries\\nAugment people instead of spamming."
+    },
+    {
+      "title": "6. EDUCATION",
+      "onscreen": "Exercises • Explanations • Assessments\\nExperts maintain quality."
+    },
+    {
+      "title": "7. VERTICAL SOFTWARE",
+      "onscreen": "Solve one narrow industry workflow\\nUse AI where it creates leverage."
+    },
+    {
+      "title": "THE PRINCIPLE",
+      "onscreen": "Customer problem → measurable result → AI leverage\\nBuild a repeatable process."
+    }
+  ]
+}
