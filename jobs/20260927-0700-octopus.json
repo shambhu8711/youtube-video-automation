@@ -1,0 +1,31 @@
+{
+  "job_key": "20260927-0700-octopus",
+  "title": "An Octopus Has Three Hearts 🐙 #Shorts",
+  "script": "An octopus has three hearts. Two pump blood through the gills, while the third sends oxygenated blood around the rest of the body. Their blood also uses a copper based protein called hemocyanin, which gives it a bluish color. This unusual circulation helps octopuses survive in cold, low oxygen ocean environments. Three hearts, blue blood, and eight arms make an octopus one remarkable animal. Follow for more animal facts.",
+  "scenes": [
+    {
+      "hook": "AN OCTOPUS HAS\\nTHREE HEARTS",
+      "sub": "Its circulation is unlike ours."
+    },
+    {
+      "hook": "TWO SERVE\\nTHE GILLS",
+      "sub": "They move blood through respiratory organs."
+    },
+    {
+      "hook": "ONE SERVES\\nTHE BODY",
+      "sub": "The systemic heart powers circulation."
+    },
+    {
+      "hook": "ITS BLOOD CAN\\nLOOK BLUE",
+      "sub": "Hemocyanin contains copper."
+    },
+    {
+      "hook": "BUILT FOR THE\\nOCEAN",
+      "sub": "A remarkable marine adaptation."
+    },
+    {
+      "hook": "THREE HEARTS\\nEIGHT ARMS",
+      "sub": "Follow for more animal facts."
+    }
+  ]
+}
