@@ -1,0 +1,28 @@
+{
+  "job_key": "20260927-1400-wombat",
+  "title": "Wombats Make Cube-Shaped Poop 🤯 #Shorts",
+  "description": "One of nature's strangest facts: wombats produce cube-shaped droppings. #Shorts #AnimalFacts #InterestingFacts",
+  "tags": [
+    "Shorts",
+    "Animal Facts",
+    "Wombat",
+    "Interesting Facts",
+    "Nature"
+  ],
+  "category_id": "15",
+  "script": "Wombats are famous for one of the strangest shapes in nature. Their droppings can come out as cubes. The shape is not made by a square opening. Instead, different parts of the wombat's intestine stretch and contract at different rates as the material dries, helping form flat sides and corners. The cubes are also less likely to roll away, which is useful because wombats leave droppings in noticeable places to communicate and mark territory.",
+  "scenes": [
+    {
+      "text": "WOMBATS MAKE CUBES",
+      "visual": "stylized wombat in Australian scrub"
+    },
+    {
+      "text": "THE INTESTINE SHAPES THEM",
+      "visual": "abstract flexible tube forming rounded cubes"
+    },
+    {
+      "text": "CUBES DON'T ROLL AWAY",
+      "visual": "small cubes resting on a rock"
+    }
+  ]
+}
