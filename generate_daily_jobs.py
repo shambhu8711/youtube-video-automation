@@ -39,9 +39,11 @@ def short_job(hour,t):
  key=f"{date:%Y%m%d}-{hour:02d}00-{slug}"
  return {"job_key":key,"title":title+" #Shorts","description":"A concise educational explainer. #Shorts","script":script,"scenes":[{"text":x,"visual":visual} for x in scenes],"category_id":"27","tags":["Shorts","facts","education",slug.replace("-"," ")]}
 os.makedirs("jobs",exist_ok=True)
-for h in range(24):
- p=f"jobs/{date:%Y%m%d}-{h:02d}00-{topics[h][0]}.json"
- if not os.path.exists(p): json.dump(short_job(h,topics[h]),open(p,"w"),indent=2,ensure_ascii=False)
+short_hours=list(range(0,24,2))
+for i,h in enumerate(short_hours):
+ t=topics[(i + date.toordinal()) % len(topics)]
+ p=f"jobs/{date:%Y%m%d}-{h:02d}00-{t[0]}.json"
+ if not os.path.exists(p): json.dump(short_job(h,t),open(p,"w"),indent=2,ensure_ascii=False)
 os.makedirs("longform/jobs",exist_ok=True)
 baseparas=[
 "Start with the central idea and separate what the technology can do from what people often assume it can do. Modern AI language systems learn statistical patterns from large collections of examples. When asked a question, they generate a response piece by piece using those learned patterns and the context supplied in the prompt. Fluency is therefore not the same thing as verification. A confident sentence can still contain an error. Useful practice is to provide clear context, ask for sources when appropriate, and independently verify decisions that matter.",
@@ -59,4 +61,4 @@ for i,(tm,title,cat) in enumerate(longs):
  job={"job_key":key,"title":title,"series":"Daily Growth Video","description":f"An educational deep dive into {cat.lower()}.","script":script,"chapters":chapters,"category_id":"27","tags":[cat,"education","explainer"]}
  p=f"longform/jobs/{date:%Y%m%d}-{tm}.json"
  if not os.path.exists(p): json.dump(job,open(p,"w"),indent=2,ensure_ascii=False)
-print("GENERATED",date,24,"shorts",3,"longform")
+print("GENERATED",date,12,"shorts",3,"longform")
