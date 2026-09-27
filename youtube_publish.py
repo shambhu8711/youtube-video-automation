@@ -27,6 +27,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--video",required=True); p.add_argument("--job",required=True)
     p.add_argument("--privacy",default="public",choices=["public","unlisted","private"])
+    p.add_argument("--thumbnail")
     p.add_argument("--result",default="youtube_result.json")
     p.add_argument("--state",default="youtube_upload_state.json")
     a=p.parse_args()
@@ -64,6 +65,12 @@ def main():
          "privacy":a.privacy,"processing":"verification_pending",
          "upload_accepted":True,"job_key":job.get("job_key")}
     json.dump(out,open(a.result,"w"),indent=2)
+    if a.thumbnail and os.path.exists(a.thumbnail):
+        tmedia=MediaFileUpload(a.thumbnail,mimetype="image/jpeg",resumable=False)
+        yt.thumbnails().set(videoId=vid,media_body=tmedia).execute()
+        state["thumbnail_uploaded"]=True
+        json.dump(state,open(a.state,"w"),indent=2)
+        print("THUMBNAIL_ACCEPTED",vid,flush=True)
     print("UPLOAD_ACCEPTED",vid,flush=True)
 
 if __name__=="__main__":
