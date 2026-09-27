@@ -5,7 +5,7 @@ on:
     # 10:30, 15:30 and 20:30 IST = 05:00, 10:00 and 15:00 UTC
     - cron: '0 5,10,15 * * *'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: daily-long-form
   cancel-in-progress: false
@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts
+          pip install pillow edge-tts google-api-python-client google-auth
       - name: Build narration and video
         run: |
           cp longform/jobs/current.json longform_job.json
@@ -38,6 +38,50 @@ jobs:
           assert any(x["codec_type"]=="audio" for x in s)
           d=float(j["format"]["duration"]); assert 120 <= d <= 900,d
           PY
+      - name: Publish long-form directly to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,datetime
+          j=json.load(open("longform_job.json"))
+          # Each scheduled edition needs a durable key. Existing explicit key is retained.
+          if not j.get("job_key"):
+              now=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5,minutes=30)))
+              j["job_key"]="long-"+now.strftime("%Y%m%d-%H%M")
+          json.dump(j,open("longform_job.json","w"),ensure_ascii=False)
+          PY
+          KEY=$(python -c 'import json; print(json.load(open("longform_job.json"))["job_key"])')
+          if [ -f "state/uploads/$KEY.json" ]; then
+            echo "ALREADY_PUBLISHED $KEY"
+            cp "state/uploads/$KEY.json" youtube_upload_state.json
+          else
+            for attempt in 1 2 3; do
+              python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public && break
+              rc=$?
+              test "$rc" -ne 78 || exit "$rc"
+              test "$attempt" -lt 3 || exit "$rc"
+              sleep 300
+            done
+            test -s youtube_upload_state.json
+            mkdir -p state/uploads
+            cp youtube_upload_state.json "state/uploads/$KEY.json"
+            git config user.name "youtube-automation[bot]"
+            git config user.email "youtube-automation[bot]@users.noreply.github.com"
+            git add state/uploads/
+            if ! git diff --cached --quiet; then
+              git commit -m "Record long-form YouTube upload $KEY [skip ci]"
+              for n in 1 2 3; do
+                git pull --rebase origin main && git push origin HEAD:main && break
+                test "$n" -lt 3 || exit 1
+                sleep 10
+              done
+            fi
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: daily-long-form-${{ github.run_id }}
