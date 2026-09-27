@@ -1,0 +1,51 @@
+name: Prepare Daily Content Queue
+on:
+  workflow_dispatch:
+  schedule:
+    # 00:05 IST every day
+    - cron: '35 18 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: prepare-daily-content
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Generate today's unique queue
+        run: python generate_daily_jobs.py
+      - name: Validate queue
+        run: |
+          python - <<'PY'
+          import glob,json,re
+          from datetime import datetime,timezone,timedelta
+          d=datetime.now(timezone(timedelta(hours=5,minutes=30))).strftime("%Y%m%d")
+          ss=glob.glob(f"jobs/{d}-*.json")
+          ls=glob.glob(f"longform/jobs/{d}-*.json")
+          assert len(ss)==24,(d,len(ss))
+          assert len(ls)==3,(d,len(ls))
+          titles=[]
+          for p in ss+ls:
+              j=json.load(open(p)); assert j.get("job_key") and j.get("title") and j.get("script")
+              titles.append(re.sub(r"[^a-z0-9]+"," ",j["title"].lower()).strip())
+          assert len(titles)==len(set(titles)),"Duplicate titles in daily queue"
+          print("QUEUE_VALID",len(ss),len(ls))
+          PY
+      - name: Commit generated queue
+        run: |
+          set -euo pipefail
+          git config user.name "youtube-automation[bot]"
+          git config user.email "youtube-automation[bot]@users.noreply.github.com"
+          git add jobs/ longform/jobs/
+          if ! git diff --cached --quiet; then
+            git commit -m "Prepare daily YouTube content queue [skip ci]"
+            for n in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              test "$n" -lt 3 || exit 1
+              sleep 10
+            done
+          fi
