@@ -1,7 +1,5 @@
 name: Hourly YouTube Shorts
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       job_file:
@@ -10,26 +8,25 @@ on:
         type: string
   schedule:
     - cron: '30 * * * *'
-    - cron: '*/5 * * * *'
 
 permissions:
   contents: read
 
 concurrency:
-  group: youtube-production-${{ github.run_id }}
+  group: youtube-shorts-production
   cancel-in-progress: false
 
 jobs:
-  render:
+  render-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
-      - name: Install renderer
+      - name: Install production tools
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts faster-whisper
+          pip install pillow edge-tts faster-whisper google-api-python-client google-auth
       - name: Select fresh job
         id: select
         env:
@@ -62,13 +59,31 @@ jobs:
           test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
           test -s visual_signature.txt
           ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
-      - uses: actions/upload-artifact@v4
+      - name: Publish directly to YouTube and verify
         if: steps.select.outputs.has_job == 'true'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "YouTube publish attempt $attempt/3"
+            if python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then sleep 300; fi
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.select.outputs.has_job == 'true'
         with:
           name: short-${{ steps.select.outputs.job_key }}
           path: |
             final_short.mp4
             selected_job.json
+            youtube_result.json
             ffprobe.json
             loudness.txt
             motion_hashes.txt
@@ -76,4 +91,5 @@ jobs:
             transcript_score.txt
             intended.txt
             visual_signature.txt
+          if-no-files-found: ignore
           retention-days: 14
