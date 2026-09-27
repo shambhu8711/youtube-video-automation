@@ -22,9 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         job_file:
-          - 20260927-1000-eiffel.json
-          - 20260927-1100-bananas.json
-          - 20260927-1200-sharks.json
           - 20260927-1300-sleep-memory.json
           - 20260927-1400-wombat.json
           - 20260927-1500-ai-hallucination.json
