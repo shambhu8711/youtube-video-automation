@@ -49,6 +49,7 @@ jobs:
           python -c 'import json; j=json.load(open("longform_job.json")); open("long_script.txt","w").write(j["script"])'
           edge-tts --voice en-US-AriaNeural --rate=-4% --text "$(cat long_script.txt)" --write-media long_voice.mp3 --write-subtitles long_captions.vtt
           python longform/render_long.py
+          python longform/make_thumbnail.py --job longform_job.json --out thumbnail.jpg
           ffmpeg -y -framerate 30 -i long_frames/%05d.jpg -i long_voice.mp3 -vf "subtitles=long_captions.vtt:force_style='FontName=DejaVu Sans,FontSize=22,Outline=2,Alignment=2,MarginV=55'" -c:v libx264 -preset veryfast -crf 24 -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest longform.mp4
       - name: Exact-file QA
         run: |
@@ -84,7 +85,7 @@ jobs:
             cp "state/uploads/$KEY.json" youtube_upload_state.json
           else
             for attempt in 1 2 3; do
-              python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public && break
+              python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public --thumbnail thumbnail.jpg && break
               rc=$?
               test "$rc" -ne 78 || exit "$rc"
               test "$attempt" -lt 3 || exit "$rc"
@@ -112,4 +113,5 @@ jobs:
             longform.mp4
             longform_job.json
             long_ffprobe.json
+            thumbnail.jpg
           retention-days: 14
