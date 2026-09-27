@@ -5,6 +5,8 @@ if manual:
     p=manual if manual.startswith("jobs/") else "jobs/"+manual
     if p not in files: raise SystemExit("Requested job not found: "+p)
 else:
+    # Treat existing successful workflow artifacts as completed jobs.
+    # Recovery jobs can also be explicitly marked here after publication.
     done=set()
     if os.path.exists("published_jobs.txt"):
         done={x.strip() for x in open("published_jobs.txt") if x.strip()}
