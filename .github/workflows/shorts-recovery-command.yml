@@ -1,0 +1,84 @@
+name: Shorts Recovery Command
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'recovery/shorts-command.json'
+permissions:
+  contents: write
+concurrency:
+  group: youtube-shorts-production
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install production tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install pillow edge-tts faster-whisper google-api-python-client google-auth
+      - name: Select requested Short
+        run: |
+          python generate_daily_jobs.py
+          python - <<'PY'
+          import json,os,shutil
+          c=json.load(open("recovery/shorts-command.json"))
+          date=str(c["date"]); slot=str(c["slot"])
+          matches=[p for p in __import__("glob").glob(f"jobs/{date}-{slot}-*.json")]
+          if len(matches)!=1: raise SystemExit(f"Expected one job for {date}-{slot}, found {matches}")
+          j=json.load(open(matches[0]))
+          key=j["job_key"]
+          if os.path.exists(f"state/uploads/{key}.json"):
+              open("no_fresh_job","w").write("1"); print("ALREADY_PUBLISHED",key)
+          else:
+              shutil.copyfile(matches[0],"selected_job.json"); print("RECOVERY_SELECTED",key)
+          PY
+      - name: Render
+        if: ${{ hashFiles('no_fresh_job') == '' }}
+        run: python render.py
+      - name: Exact final speech QA
+        if: ${{ hashFiles('no_fresh_job') == '' }}
+        run: python qa_exact.py
+      - name: Upload directly to YouTube
+        if: ${{ hashFiles('no_fresh_job') == '' }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3; do
+            python youtube_publish.py --video short.mp4 --job selected_job.json --privacy public
+            rc=$?
+            if [ "$rc" -eq 0 ]; then break; fi
+            test "$rc" -ne 78 || exit "$rc"
+            test "$attempt" -lt 3 || exit "$rc"
+            sleep 300
+          done
+          test -s youtube_upload_state.json
+          KEY=$(python -c 'import json; print(json.load(open("selected_job.json"))["job_key"])')
+          mkdir -p state/uploads
+          cp youtube_upload_state.json "state/uploads/$KEY.json"
+          git config user.name "youtube-automation[bot]"
+          git config user.email "youtube-automation[bot]@users.noreply.github.com"
+          git add state/uploads/
+          git commit -m "Record recovered Short $KEY [skip ci]" || true
+          for n in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            test "$n" -lt 3 || exit 1
+            sleep 10
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovered-short-${{ github.run_id }}
+          path: |
+            short.mp4
+            selected_job.json
+            youtube_result.json
+            youtube_upload_state.json
+          if-no-files-found: ignore
+          retention-days: 7
