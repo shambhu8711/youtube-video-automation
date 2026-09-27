@@ -1,0 +1,28 @@
+{
+  "job_key": "20260927-1300-sleep-memory",
+  "title": "Your Brain Replays Memories While You Sleep 🧠 #Shorts",
+  "description": "Sleep is active work for your brain. Here is how memory consolidation happens while you rest. #Shorts #Psychology #BrainFacts",
+  "tags": [
+    "Shorts",
+    "Psychology",
+    "Brain Facts",
+    "Sleep",
+    "Memory"
+  ],
+  "category_id": "27",
+  "script": "Sleep does not mean your brain switches off. While you rest, your brain repeatedly reactivates patterns linked to experiences from the day. This process helps strengthen useful memories and organize new information. Researchers call part of this memory consolidation. That is one reason good sleep can matter when you are learning something new. Your brain may look quiet from the outside, but behind the scenes it is busy sorting, strengthening, and connecting what you learned.",
+  "scenes": [
+    {
+      "text": "YOUR BRAIN WORKS WHILE YOU SLEEP",
+      "visual": "sleeping silhouette with pulsing neural paths"
+    },
+    {
+      "text": "MEMORIES GET REPLAYED",
+      "visual": "memory cards flowing through a brain network"
+    },
+    {
+      "text": "SLEEP HELPS CONSOLIDATE LEARNING",
+      "visual": "neural connections becoming organized"
+    }
+  ]
+}
