@@ -80,5 +80,11 @@ if __name__=="__main__":
         print("OAUTH_ERROR",str(e),file=sys.stderr,flush=True); sys.exit(78)
     except HttpError as e:
         code=getattr(e.resp,"status",None)
-        print("YOUTUBE_API_ERROR",code,str(e),file=sys.stderr,flush=True)
+        msg=str(e)
+        print("YOUTUBE_API_ERROR",code,msg,file=sys.stderr,flush=True)
+        if "uploadLimitExceeded" in msg or "exceeded the number of videos they may upload" in msg:
+            # Channel-level YouTube upload cap: preserve the rendered artifact and defer.
+            # Exit 79 is intentionally non-retriable in the immediate 5-minute retry loop.
+            print("YOUTUBE_UPLOAD_LIMIT_WAIT",file=sys.stderr,flush=True)
+            sys.exit(79)
         sys.exit(75 if code in (429,500,502,503,504) else 78)
