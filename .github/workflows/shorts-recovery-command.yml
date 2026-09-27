@@ -36,20 +36,26 @@ jobs:
           else:
               shutil.copyfile(matches[0],"selected_job.json"); print("RECOVERY_SELECTED",key)
           PY
-      - name: Render
+      - name: Render and exact-file QA
         if: ${{ hashFiles('no_fresh_job') == '' }}
-        run: python render.py
-      - name: Exact final speech QA
-        if: ${{ hashFiles('no_fresh_job') == '' }}
+        shell: bash
         run: |
-          ffprobe -v error -show_entries stream=codec_type,width,height -show_entries format=duration -of json short.mp4 > ffprobe.json
-          ffmpeg -y -i short.mp4 -vn -ac 1 -ar 16000 exact_audio.wav
-          python - <<'PY'
-          import json
-          j=json.load(open("selected_job.json",encoding="utf-8"))
-          open("intended.txt","w",encoding="utf-8").write(j["script"])
-          PY
+          set -euo pipefail
+          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt youtube_result.json youtube_upload_state.json
+          mkdir -p frames
+          python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
+          edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
+          python render.py
+          ffmpeg -y -framerate 30 -i frames/%05d.png -i voice.mp3 -vf "subtitles=captions.vtt:force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Alignment=2,MarginV=90'" -c:v libx264 -crf 23 -preset ultrafast -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest final_short.mp4
+          ffprobe -v error -show_entries stream=codec_type,width,height,r_frame_rate -show_entries format=duration -of json final_short.mp4 > ffprobe.json
+          ffmpeg -y -i final_short.mp4 -vn -ac 1 -ar 16000 exact_audio.wav
           python qa_exact.py
+          mkdir -p motion
+          for t in 2 6 10 14 18; do ffmpeg -loglevel error -ss $t -i final_short.mp4 -frames:v 1 motion/$t.png; done
+          sha256sum motion/*.png > motion_hashes.txt
+          test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
+          test -s visual_signature.txt
+          ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
       - name: Upload directly to YouTube
         if: ${{ hashFiles('no_fresh_job') == '' }}
         env:
@@ -59,7 +65,7 @@ jobs:
         run: |
           set -uo pipefail
           for attempt in 1 2 3; do
-            python youtube_publish.py --video short.mp4 --job selected_job.json --privacy public
+            python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public
             rc=$?
             if [ "$rc" -eq 0 ]; then break; fi
             test "$rc" -ne 78 || exit "$rc"
@@ -84,7 +90,7 @@ jobs:
         with:
           name: recovered-short-${{ github.run_id }}
           path: |
-            short.mp4
+            final_short.mp4
             selected_job.json
             youtube_result.json
             youtube_upload_state.json
