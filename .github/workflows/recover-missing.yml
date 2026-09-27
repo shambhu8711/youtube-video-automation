@@ -9,32 +9,39 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: youtube-shorts-recovery
+  cancel-in-progress: false
+
 jobs:
   recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
     strategy:
+      max-parallel: 1
       fail-fast: false
       matrix:
         job_file:
-          - 20260927-0900-costco.json
           - 20260927-1000-eiffel.json
           - 20260927-1100-bananas.json
           - 20260927-1200-sharks.json
-    runs-on: ubuntu-latest
-    timeout-minutes: 18
+          - 20260927-1300-sleep-memory.json
+          - 20260927-1400-wombat.json
+          - 20260927-1500-ai-hallucination.json
     steps:
       - uses: actions/checkout@v4
-      - name: Install renderer
+      - name: Install production tools
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts faster-whisper
+          pip install pillow edge-tts faster-whisper google-api-python-client google-auth
       - name: Select recovery job
         run: cp "jobs/${{ matrix.job_file }}" selected_job.json
       - name: Render and exact-file QA
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt
+          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt youtube_result.json youtube_upload_state.json
           mkdir -p frames
           python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
           edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
@@ -48,18 +55,35 @@ jobs:
           sha256sum motion/*.png > motion_hashes.txt
           test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
           test -s visual_signature.txt
-          ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
+      - name: Upload directly to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        shell: bash
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3; do
+            echo "YouTube upload attempt $attempt/3"
+            python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public
+            rc=$?
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -eq 78 ]; then exit "$rc"; fi
+            if [ "$attempt" -lt 3 ]; then sleep 300; fi
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: recovery-${{ matrix.job_file }}
           path: |
             final_short.mp4
             selected_job.json
+            youtube_result.json
+            youtube_upload_state.json
             ffprobe.json
-            loudness.txt
-            motion_hashes.txt
             transcript.txt
             transcript_score.txt
-            intended.txt
             visual_signature.txt
+          if-no-files-found: ignore
           retention-days: 14
