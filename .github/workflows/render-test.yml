@@ -1,7 +1,5 @@
 name: Hourly YouTube Shorts
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       job_file:
@@ -13,20 +11,18 @@ on:
     - cron: '*/5 * * * *'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: youtube-production
+  group: youtube-production-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Install renderer
         run: |
           sudo apt-get update
@@ -44,41 +40,26 @@ jobs:
             echo "has_job=true" >> "$GITHUB_OUTPUT"
             echo "job_key=$(python -c 'import json; print(json.load(open("selected_job.json"))["job_key"])')" >> "$GITHUB_OUTPUT"
           fi
-      - name: Render and exact-file QA with recovery
+      - name: Render and exact-file QA
         if: steps.select.outputs.has_job == 'true'
         shell: bash
         run: |
-          set -uo pipefail
-          attempt=0
-          max_attempts=4
-          until [ "$attempt" -ge "$max_attempts" ]; do
-            attempt=$((attempt+1))
-            echo "Production attempt $attempt/$max_attempts"
-            rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt
-            mkdir -p frames
-            python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
-            if edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt \
-              && python render.py \
-              && ffmpeg -y -framerate 30 -i frames/%05d.png -i voice.mp3 -vf "subtitles=captions.vtt:force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Alignment=2,MarginV=90'" -c:v libx264 -crf 21 -preset medium -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest final_short.mp4 \
-              && ffprobe -v error -show_entries stream=codec_type,width,height,r_frame_rate -show_entries format=duration -of json final_short.mp4 > ffprobe.json \
-              && ffmpeg -y -i final_short.mp4 -vn -ac 1 -ar 16000 exact_audio.wav \
-              && python qa_exact.py; then
-                mkdir -p motion
-                for t in 2 6 10 14 18; do ffmpeg -loglevel error -ss $t -i final_short.mp4 -frames:v 1 motion/$t.png; done
-                sha256sum motion/*.png > motion_hashes.txt
-                if [ "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4 ] && [ -s visual_signature.txt ]; then
-                  ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
-                  echo "RENDER_QA_PASS attempt=$attempt"
-                  break
-                fi
-            fi
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "FAILED after initial attempt plus 3 retries"
-              exit 1
-            fi
-            echo "Attempt failed; retrying in 5 minutes"
-            sleep 300
-          done
+          set -euo pipefail
+          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt
+          mkdir -p frames
+          python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
+          edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
+          python render.py
+          ffmpeg -y -framerate 30 -i frames/%05d.png -i voice.mp3 -vf "subtitles=captions.vtt:force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Alignment=2,MarginV=90'" -c:v libx264 -crf 23 -preset ultrafast -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest final_short.mp4
+          ffprobe -v error -show_entries stream=codec_type,width,height,r_frame_rate -show_entries format=duration -of json final_short.mp4 > ffprobe.json
+          ffmpeg -y -i final_short.mp4 -vn -ac 1 -ar 16000 exact_audio.wav
+          python qa_exact.py
+          mkdir -p motion
+          for t in 2 6 10 14 18; do ffmpeg -loglevel error -ss $t -i final_short.mp4 -frames:v 1 motion/$t.png; done
+          sha256sum motion/*.png > motion_hashes.txt
+          test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
+          test -s visual_signature.txt
+          ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
       - uses: actions/upload-artifact@v4
         if: steps.select.outputs.has_job == 'true'
         with:
@@ -94,21 +75,3 @@ jobs:
             intended.txt
             visual_signature.txt
           retention-days: 14
-      - name: Persist QA-passed render state
-        if: steps.select.outputs.has_job == 'true'
-        env:
-          JOB_KEY: ${{ steps.select.outputs.job_key }}
-        run: |
-          set -euo pipefail
-          touch rendered_jobs.txt
-          grep -qxF "$JOB_KEY" rendered_jobs.txt || echo "$JOB_KEY" >> rendered_jobs.txt
-          git config user.name "youtube-production-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add rendered_jobs.txt
-          git diff --cached --quiet && exit 0
-          git commit -m "Mark rendered: $JOB_KEY"
-          for i in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
-            sleep 10
-          done
-          exit 1
