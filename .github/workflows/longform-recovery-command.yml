@@ -1,0 +1,98 @@
+name: Long Form Recovery Command
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'recovery/longform-command.json'
+permissions:
+  contents: write
+concurrency:
+  group: long-form-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install production tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install pillow edge-tts google-api-python-client google-auth
+      - name: Select requested edition
+        run: |
+          python generate_daily_jobs.py
+          python - <<'PY'
+          import json,os,shutil
+          c=json.load(open("recovery/longform-command.json"))
+          date=str(c["date"]); slot=str(c["slot"])
+          assert slot in {"1030","1530","2030"}
+          p=f"longform/jobs/{date}-{slot}.json"
+          if not os.path.exists(p): raise SystemExit("Missing "+p)
+          shutil.copyfile(p,"longform_job.json")
+          print("RECOVERY_SELECTED",p)
+          PY
+      - name: Build narration video and thumbnail
+        run: |
+          python -c 'import json; j=json.load(open("longform_job.json")); open("long_script.txt","w").write(j["script"])'
+          edge-tts --voice en-US-AriaNeural --rate=-4% --text "$(cat long_script.txt)" --write-media long_voice.mp3 --write-subtitles long_captions.vtt
+          python longform/render_long.py
+          python longform/make_thumbnail.py --job longform_job.json --out thumbnail.jpg
+          ffmpeg -y -framerate 30 -i long_frames/%05d.jpg -i long_voice.mp3 -vf "subtitles=long_captions.vtt:force_style='FontName=DejaVu Sans,FontSize=22,Outline=2,Alignment=2,MarginV=55'" -c:v libx264 -preset veryfast -crf 24 -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest longform.mp4
+      - name: Exact-file QA
+        run: |
+          ffprobe -v error -show_entries stream=codec_type,width,height -show_entries format=duration -of json longform.mp4 > long_ffprobe.json
+          python - <<'PY'
+          import json,os
+          j=json.load(open("long_ffprobe.json")); s=j["streams"]
+          v=next(x for x in s if x["codec_type"]=="video")
+          assert (v["width"],v["height"])==(1920,1080)
+          assert any(x["codec_type"]=="audio" for x in s)
+          d=float(j["format"]["duration"]); assert 120 <= d <= 900,d
+          assert os.path.getsize("thumbnail.jpg") > 10000
+          PY
+      - name: Upload replacement with thumbnail
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -uo pipefail
+          KEY=$(python -c 'import json; print(json.load(open("longform_job.json"))["job_key"])')
+          if [ -f "state/uploads/$KEY.json" ]; then
+            echo "ALREADY_PUBLISHED $KEY"; exit 0
+          fi
+          for attempt in 1 2 3; do
+            python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public --thumbnail thumbnail.jpg
+            rc=$?
+            if [ "$rc" -eq 0 ]; then break; fi
+            test "$rc" -ne 78 || exit "$rc"
+            test "$attempt" -lt 3 || exit "$rc"
+            sleep 300
+          done
+          test -s youtube_upload_state.json
+          mkdir -p state/uploads
+          cp youtube_upload_state.json "state/uploads/$KEY.json"
+          git config user.name "youtube-automation[bot]"
+          git config user.email "youtube-automation[bot]@users.noreply.github.com"
+          git add state/uploads/
+          git commit -m "Record recovered long-form upload $KEY [skip ci]" || true
+          for n in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            test "$n" -lt 3 || exit 1
+            sleep 10
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovered-long-form-${{ github.run_id }}
+          path: |
+            longform.mp4
+            thumbnail.jpg
+            longform_job.json
+            youtube_result.json
+            youtube_upload_state.json
+            long_ffprobe.json
+          if-no-files-found: ignore
+          retention-days: 14
