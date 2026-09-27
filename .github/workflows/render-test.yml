@@ -10,7 +10,7 @@ on:
     - cron: '30 * * * *'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: youtube-shorts-production
@@ -90,6 +90,25 @@ jobs:
             if [ "$attempt" -lt 3 ]; then echo "Transient upload failure; retrying in 5 minutes"; sleep 300; fi
           done
           exit 1
+      - name: Persist accepted upload state
+        if: steps.select.outputs.has_job == 'true' && success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s youtube_upload_state.json
+          mkdir -p state/uploads
+          cp youtube_upload_state.json "state/uploads/${{ steps.select.outputs.job_key }}.json"
+          git config user.name "youtube-automation[bot]"
+          git config user.email "youtube-automation[bot]@users.noreply.github.com"
+          git add state/uploads/
+          if ! git diff --cached --quiet; then
+            git commit -m "Record YouTube upload ${{ steps.select.outputs.job_key }} [skip ci]"
+            for n in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              test "$n" -lt 3 || exit 1
+              sleep 10
+            done
+          fi
       - uses: actions/upload-artifact@v4
         if: always() && steps.select.outputs.has_job == 'true'
         with:
