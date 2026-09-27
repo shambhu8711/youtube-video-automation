@@ -72,7 +72,7 @@ jobs:
           test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
           test -s visual_signature.txt
           ffmpeg -i final_short.mp4 -filter_complex ebur128=peak=true -f null - 2> loudness.txt || true
-      - name: Publish directly to YouTube and verify
+      - name: Upload directly to YouTube
         if: steps.select.outputs.has_job == 'true'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
@@ -82,12 +82,12 @@ jobs:
         run: |
           set -uo pipefail
           for attempt in 1 2 3; do
-            echo "YouTube publish/verify attempt $attempt/3"
+            echo "YouTube upload attempt $attempt/3"
             python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public
             rc=$?
             if [ "$rc" -eq 0 ]; then exit 0; fi
             if [ "$rc" -eq 78 ]; then echo "::error::Non-retriable OAuth/config/API error"; exit "$rc"; fi
-            if [ "$attempt" -lt 3 ]; then echo "Retrying same upload/video state in 5 minutes"; sleep 300; fi
+            if [ "$attempt" -lt 3 ]; then echo "Transient upload failure; retrying in 5 minutes"; sleep 300; fi
           done
           exit 1
       - uses: actions/upload-artifact@v4
