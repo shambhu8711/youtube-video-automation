@@ -1,0 +1,27 @@
+{
+  "job_key": "20260927-1100-bananas",
+  "title": "Bananas Are Berries, But Strawberries Aren’t 🍌 #Shorts",
+  "script": "Here is a surprising botany fact: bananas qualify as berries, while strawberries do not. In botanical terms, a berry develops from a single flower with one ovary and usually has seeds embedded inside the flesh. Bananas fit that structure. Strawberries form differently, with their seed-like fruits sitting on the outside. Everyday food names and scientific classifications can be very different.",
+  "scenes": [
+    {
+      "hook": "BANANAS ARE BERRIES? 🍌",
+      "sub": "Botany has surprising rules."
+    },
+    {
+      "hook": "A BERRY HAS A STRUCTURE",
+      "sub": "It develops from one flower and one ovary."
+    },
+    {
+      "hook": "BANANAS FIT IT",
+      "sub": "Their fruit structure qualifies botanically."
+    },
+    {
+      "hook": "STRAWBERRIES DON’T 🍓",
+      "sub": "Their tiny outside pieces are individual fruits."
+    },
+    {
+      "hook": "FOOD NAMES ≠ BOTANY",
+      "sub": "Scientific categories can surprise you."
+    }
+  ]
+}
