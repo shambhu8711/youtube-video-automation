@@ -1,25 +1,43 @@
-name: Shorts Renderer Acceptance
+name: Hourly YouTube Shorts
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+    inputs:
+      job_file:
+        description: Job JSON file in jobs/
+        required: false
+        type: string
   schedule:
-    # GitHub cron is UTC. :30 UTC = top of the hour in IST.
+    # GitHub cron is UTC. :30 UTC = top of the hour IST.
     - cron: '30 * * * *'
+
+concurrency:
+  group: hourly-youtube-short
+  cancel-in-progress: false
+
 jobs:
   render:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
+      - name: Install renderer
+        run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
           pip install pillow edge-tts faster-whisper
+      - name: Select fresh job
+        id: select
+        env:
+          MANUAL_JOB: ${{ inputs.job_file }}
+        run: |
+          python select_job.py
+          echo "job_key=$(python -c 'import json; print(json.load(open("selected_job.json"))["job_key"])')" >> "$GITHUB_OUTPUT"
       - name: Female narration
         run: |
-          cat > intended.txt <<'TXT'
-          Your brain can miss something obvious even when it is right in front of you. Psychologists call this inattentional blindness. When you focus hard on one demanding task, attention acts like a spotlight, prioritizing some information while filtering other details. That is why an unexpected object or event can go unnoticed even though your eyes were open. Attention is not a perfect camera. It is a selection system. What did you miss today? Follow for more psychology facts.
-          TXT
+          python - <<'PY'
+          import json
+          j=json.load(open("selected_job.json"))
+          open("intended.txt","w").write(j["script"])
+          PY
           edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
       - name: Animated graphics
         run: python render.py
@@ -46,7 +64,7 @@ jobs:
           intended=open("intended.txt").read().strip()
           score=difflib.SequenceMatcher(None,norm(intended),norm(transcript)).ratio()
           open("transcript_score.txt","w").write(str(score))
-          assert score>=0.72, (score,transcript)
+          assert score>=0.72,(score,transcript)
           print("EXACT_FINAL_SPEECH_QA_PASS",score)
           PY
           mkdir motion
@@ -55,9 +73,10 @@ jobs:
           test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
       - uses: actions/upload-artifact@v4
         with:
-          name: hourly-short-${{ github.run_id }}
+          name: short-${{ steps.select.outputs.job_key }}
           path: |
             final_short.mp4
+            selected_job.json
             ffprobe.json
             loudness.txt
             motion_hashes.txt
