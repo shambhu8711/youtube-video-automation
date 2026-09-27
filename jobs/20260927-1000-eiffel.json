@@ -1,0 +1,31 @@
+{
+  "job_key": "20260927-1000-eiffel",
+  "title": "The Eiffel Tower Changes Height ☀️ #Shorts",
+  "script": "The Eiffel Tower can become slightly taller in hot weather. Metal expands as its temperature rises, so the iron structure can gain several centimeters during warm conditions. Uneven heating from sunlight can also make the tower shift slightly away from the Sun. Engineers understand thermal expansion and design large structures to tolerate movement like this. Even famous landmarks are constantly responding to physics. Follow for more engineering facts.",
+  "scenes": [
+    {
+      "hook": "THE EIFFEL TOWER\\nCHANGES HEIGHT",
+      "sub": "Temperature can move huge structures."
+    },
+    {
+      "hook": "METAL EXPANDS\\nWHEN HEATED",
+      "sub": "Iron dimensions change slightly."
+    },
+    {
+      "hook": "SEVERAL\\nCENTIMETERS",
+      "sub": "Warm weather can make it taller."
+    },
+    {
+      "hook": "SUNLIGHT CAN\\nSHIFT IT",
+      "sub": "Uneven heating causes tiny movement."
+    },
+    {
+      "hook": "ENGINEERS PLAN\\nFOR MOVEMENT",
+      "sub": "Thermal expansion is expected."
+    },
+    {
+      "hook": "LANDMARKS OBEY\\nPHYSICS TOO",
+      "sub": "Follow for more engineering facts."
+    }
+  ]
+}
