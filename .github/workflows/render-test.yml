@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # GitHub cron is UTC. :30 UTC = top of the hour in IST.
+    - cron: '30 * * * *'
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -52,7 +55,7 @@ jobs:
           test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
       - uses: actions/upload-artifact@v4
         with:
-          name: catchup-4am-fresh-psychology
+          name: hourly-short-${{ github.run_id }}
           path: |
             final_short.mp4
             ffprobe.json
