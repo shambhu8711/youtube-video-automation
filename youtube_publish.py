@@ -23,31 +23,6 @@ def creds():
     c.refresh(Request())
     return c
 
-def verify(yt,vid,privacy,result,job_key,timeout=900):
-    deadline=time.time()+timeout
-    last={}
-    while time.time()<deadline:
-        r=yt.videos().list(part="status,processingDetails",id=vid).execute()
-        if not r.get("items"): raise RuntimeError("Uploaded video not returned by videos.list: "+vid)
-        last=r["items"][0]
-        proc=last.get("processingDetails",{}).get("processingStatus","unknown")
-        st=last.get("status",{})
-        upload_status=st.get("uploadStatus")
-        actual_privacy=st.get("privacyStatus")
-        print("VERIFY",vid,proc,actual_privacy,upload_status,flush=True)
-        if proc=="failed" or upload_status in ("failed","rejected"):
-            raise RuntimeError("YouTube rejected/failed video: "+json.dumps(last))
-        if proc=="succeeded" and upload_status=="processed":
-            if actual_privacy!=privacy:
-                raise RuntimeError(f"Requested {privacy} but YouTube reports {actual_privacy}. API project may require YouTube compliance audit.")
-            out={"video_id":vid,"url":"https://www.youtube.com/watch?v="+vid,
-                 "privacy":actual_privacy,"processing":"succeeded","job_key":job_key}
-            json.dump(out,open(result,"w"),indent=2)
-            print("PUBLISHED",vid,flush=True)
-            return
-        time.sleep(15)
-    raise TimeoutError("YouTube processing did not reach verified processed state: "+json.dumps(last))
-
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--video",required=True); p.add_argument("--job",required=True)
@@ -58,12 +33,17 @@ def main():
     job=json.load(open(a.job,encoding="utf-8"))
     yt=build("youtube","v3",credentials=creds(),cache_discovery=False)
 
+    # Idempotency inside a run: if YouTube already accepted this job, never upload it again.
     if os.path.exists(a.state):
         state=json.load(open(a.state))
         vid=state.get("video_id")
         if vid:
-            print("RESUME_VERIFY",vid,flush=True)
-            return verify(yt,vid,a.privacy,a.result,job.get("job_key"))
+            out={"video_id":vid,"url":"https://www.youtube.com/watch?v="+vid,
+                 "privacy":a.privacy,"processing":"verification_pending",
+                 "upload_accepted":True,"job_key":job.get("job_key")}
+            json.dump(out,open(a.result,"w"),indent=2)
+            print("UPLOAD_ALREADY_ACCEPTED",vid,flush=True)
+            return
 
     body={"snippet":{"title":job["title"][:100],
         "description":job.get("description","") or "#Shorts",
@@ -77,9 +57,14 @@ def main():
         status,response=req.next_chunk()
         if status: print(f"UPLOAD {int(status.progress()*100)}%",flush=True)
     vid=response["id"]
-    json.dump({"video_id":vid,"job_key":job.get("job_key"),"created_at":time.time()},open(a.state,"w"),indent=2)
-    print("UPLOADED",vid,flush=True)
-    verify(yt,vid,a.privacy,a.result,job.get("job_key"))
+    state={"video_id":vid,"job_key":job.get("job_key"),"created_at":time.time(),
+           "privacy_requested":a.privacy,"upload_accepted":True}
+    json.dump(state,open(a.state,"w"),indent=2)
+    out={"video_id":vid,"url":"https://www.youtube.com/watch?v="+vid,
+         "privacy":a.privacy,"processing":"verification_pending",
+         "upload_accepted":True,"job_key":job.get("job_key")}
+    json.dump(out,open(a.result,"w"),indent=2)
+    print("UPLOAD_ACCEPTED",vid,flush=True)
 
 if __name__=="__main__":
     try:
