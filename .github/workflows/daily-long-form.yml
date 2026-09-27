@@ -20,9 +20,23 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
           pip install pillow edge-tts google-api-python-client google-auth
+      - name: Ensure daily queue and select this edition
+        run: |
+          python generate_daily_jobs.py
+          python - <<'PY'
+          import glob,os,shutil
+          from datetime import datetime,timezone,timedelta
+          now=datetime.now(timezone(timedelta(hours=5,minutes=30)))
+          mins=now.hour*60+now.minute
+          slots=[(10*60+30,"1030"),(15*60+30,"1530"),(20*60+30,"2030")]
+          slot=min(slots,key=lambda x:abs(x[0]-mins))[1]
+          p=f"longform/jobs/{now:%Y%m%d}-{slot}.json"
+          if not os.path.exists(p): raise SystemExit("Missing long-form edition "+p)
+          shutil.copyfile(p,"longform_job.json")
+          print("SELECTED_LONGFORM",p)
+          PY
       - name: Build narration and video
         run: |
-          cp longform/jobs/current.json longform_job.json
           python -c 'import json; j=json.load(open("longform_job.json")); open("long_script.txt","w").write(j["script"])'
           edge-tts --voice en-US-AriaNeural --rate=-4% --text "$(cat long_script.txt)" --write-media long_voice.mp3 --write-subtitles long_captions.vtt
           python longform/render_long.py
