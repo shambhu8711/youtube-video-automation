@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: long-form-recovery
+  group: long-form-production
   cancel-in-progress: false
 jobs:
   recover:
