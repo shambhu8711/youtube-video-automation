@@ -40,6 +40,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
           pip install pillow edge-tts faster-whisper google-api-python-client google-auth
+      - name: Ensure today's content queue exists
+        run: python generate_daily_jobs.py
       - name: Select fresh job
         id: select
         env:
