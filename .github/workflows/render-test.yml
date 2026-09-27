@@ -88,6 +88,7 @@ jobs:
             python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public
             rc=$?
             if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -eq 79 ]; then echo "::warning::YouTube channel upload limit reached; preserving this slot for later recovery"; exit "$rc"; fi
             if [ "$rc" -eq 78 ]; then echo "::error::Non-retriable OAuth/config/API error"; exit "$rc"; fi
             if [ "$attempt" -lt 3 ]; then echo "Transient upload failure; retrying in 5 minutes"; sleep 300; fi
           done
