@@ -19,9 +19,22 @@ concurrency:
 jobs:
   render-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+      - name: Preflight YouTube credentials
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          missing=0
+          for n in YOUTUBE_CLIENT_ID YOUTUBE_CLIENT_SECRET YOUTUBE_REFRESH_TOKEN; do
+            if [ -z "${!n:-}" ]; then echo "::error::Missing GitHub Actions secret: $n"; missing=1; fi
+          done
+          test "$missing" -eq 0
       - name: Install production tools
         run: |
           sudo apt-get update
@@ -44,7 +57,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt
+          rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt youtube_result.json youtube_upload_state.json
           mkdir -p frames
           python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
           edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
@@ -67,13 +80,14 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         shell: bash
         run: |
-          set -euo pipefail
+          set -uo pipefail
           for attempt in 1 2 3; do
-            echo "YouTube publish attempt $attempt/3"
-            if python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public; then
-              exit 0
-            fi
-            if [ "$attempt" -lt 3 ]; then sleep 300; fi
+            echo "YouTube publish/verify attempt $attempt/3"
+            python youtube_publish.py --video final_short.mp4 --job selected_job.json --privacy public
+            rc=$?
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -eq 78 ]; then echo "::error::Non-retriable OAuth/config/API error"; exit "$rc"; fi
+            if [ "$attempt" -lt 3 ]; then echo "Retrying same upload/video state in 5 minutes"; sleep 300; fi
           done
           exit 1
       - uses: actions/upload-artifact@v4
@@ -84,6 +98,7 @@ jobs:
             final_short.mp4
             selected_job.json
             youtube_result.json
+            youtube_upload_state.json
             ffprobe.json
             loudness.txt
             motion_hashes.txt
