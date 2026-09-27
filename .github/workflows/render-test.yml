@@ -1,5 +1,7 @@
 name: Hourly YouTube Shorts
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       job_file:
