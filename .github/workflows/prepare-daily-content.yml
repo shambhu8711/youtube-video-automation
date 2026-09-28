@@ -1,6 +1,10 @@
 name: Prepare Daily Content Queue
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'recovery/prepare-command.json'
   schedule:
     # 00:05 IST every day
     - cron: '35 18 * * *'
