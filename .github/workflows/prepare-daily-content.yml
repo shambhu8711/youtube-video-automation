@@ -26,7 +26,7 @@ jobs:
           d=datetime.now(timezone(timedelta(hours=5,minutes=30))).strftime("%Y%m%d")
           ss=glob.glob(f"jobs/{d}-*.json")
           ls=glob.glob(f"longform/jobs/{d}-*.json")
-          assert len(ss)==24,(d,len(ss))
+          assert len(ss)==12,(d,len(ss))
           assert len(ls)==3,(d,len(ls))
           titles=[]
           for p in ss+ls:
