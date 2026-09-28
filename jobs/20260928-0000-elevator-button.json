@@ -1,0 +1,27 @@
+{
+  "job_key": "20260928-0000-elevator-button",
+  "title": "What the Door-Close Button Really Does #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "The behavior of elevator door-close buttons varies by building, control system, operating mode, and local accessibility rules. In some passenger situations the button may have little immediate effect, while authorized or special modes can behave differently. So the claim that every door-close button is fake is too broad—the correct answer depends on the system.",
+  "scenes": [
+    {
+      "text": "Behavior varies by system",
+      "visual": "elevator button building"
+    },
+    {
+      "text": "Accessibility timing matters",
+      "visual": "elevator button building"
+    },
+    {
+      "text": "Not every button is fake",
+      "visual": "elevator button building"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "elevator button"
+  ]
+}
