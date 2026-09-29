@@ -9,6 +9,10 @@ on:
   schedule:
     # Every 2 hours at :00 IST (GitHub Actions cron is UTC, 5 fields)
     - cron: '30 18,20,22,0,2,4,6,8,10,12,14,16 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'state/uploads/*.json'
 
 permissions:
   contents: write
