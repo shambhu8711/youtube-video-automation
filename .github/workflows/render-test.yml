@@ -44,7 +44,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts faster-whisper google-api-python-client google-auth
+          pip install -r requirements-production.txt
       - name: Ensure today's content queue exists
         run: python generate_daily_jobs.py
       - name: Drain all due Shorts backlog
