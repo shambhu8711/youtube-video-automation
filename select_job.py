@@ -27,7 +27,7 @@ else:
     for p in files:
         j=json.load(open(p,encoding="utf-8"))
         key=j.get("job_key","")
-        m=re.match(r"^(\\d{8})-(\\d{4})-",key)
+        m=re.match(r"^(\d{8})-(\d{4})-",key)
         if not m or key in done: continue
         due=datetime.strptime(m.group(1)+m.group(2),"%Y%m%d%H%M").replace(tzinfo=now.tzinfo)
         if due <= now: candidates.append((due,p))
