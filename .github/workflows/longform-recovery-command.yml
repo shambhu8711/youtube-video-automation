@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts google-api-python-client google-auth
+          pip install -r requirements-production.txt
       - name: Select requested edition
         run: |
           python generate_daily_jobs.py
@@ -67,6 +67,7 @@ jobs:
             python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public --thumbnail thumbnail.jpg
             rc=$?
             if [ "$rc" -eq 0 ]; then break; fi
+            if [ "$rc" -eq 79 ]; then echo "::warning::YouTube upload limit reached; recovery preserved"; exit 79; fi
             test "$rc" -ne 78 || exit "$rc"
             test "$attempt" -lt 3 || exit "$rc"
             sleep 300
