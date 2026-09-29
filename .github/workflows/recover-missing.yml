@@ -31,7 +31,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts faster-whisper google-api-python-client google-auth
+          pip install -r requirements-production.txt
       - name: Select recovery job
         run: cp "jobs/${{ matrix.job_file }}" selected_job.json
       - name: Render and exact-file QA
