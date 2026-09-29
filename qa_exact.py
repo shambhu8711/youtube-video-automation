@@ -1,5 +1,14 @@
 import json,re
 from faster_whisper import WhisperModel
+
+# Compatibility shim for newer PyAV releases: faster-whisper may pass
+# metadata_errors to av.open(), while some PyAV builds no longer accept it.
+import av
+_av_open = av.open
+def _compat_av_open(*args, **kwargs):
+    kwargs.pop("metadata_errors", None)
+    return _av_open(*args, **kwargs)
+av.open = _compat_av_open
 j=json.load(open("ffprobe.json")); s=j["streams"]
 v=next((x for x in s if x["codec_type"]=="video"),None)
 a=next((x for x in s if x["codec_type"]=="audio"),None)
