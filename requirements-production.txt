@@ -1,0 +1,8 @@
+# Production Python dependencies for YouTube automation.
+# Pinned so scheduled runners do not change underneath the pipeline.
+Pillow==11.3.0
+edge-tts==7.2.3
+faster-whisper==1.2.0
+av==15.1.0
+google-api-python-client==2.179.0
+google-auth==2.40.3
