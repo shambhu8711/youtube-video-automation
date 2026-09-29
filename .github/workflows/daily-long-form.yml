@@ -87,6 +87,7 @@ jobs:
             for attempt in 1 2 3; do
               python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public --thumbnail thumbnail.jpg && break
               rc=$?
+              if [ "$rc" -eq 79 ]; then echo "::warning::YouTube upload limit reached; preserve long-form job for later recovery"; exit 79; fi
               test "$rc" -ne 78 || exit "$rc"
               test "$attempt" -lt 3 || exit "$rc"
               sleep 300
