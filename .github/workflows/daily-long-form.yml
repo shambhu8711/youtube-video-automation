@@ -24,7 +24,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install pillow edge-tts google-api-python-client google-auth
+          pip install -r requirements-production.txt
       - name: Ensure daily queue and select this edition
         env:
           MANUAL_SLOT: ${{ inputs.slot }}
