@@ -1,0 +1,27 @@
+{
+  "job_key": "20261002-1200-compound-interest",
+  "title": "Why Compound Growth Feels Slow at First #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Compound growth looks unimpressive early because gains are being applied to a small base. Over longer periods, previous gains can also generate gains, making the curve steeper. The same mathematics can apply to savings, debt, audiences, and repeated improvements. The key lesson is that rate and time both matter, and real returns are never guaranteed.",
+  "scenes": [
+    {
+      "text": "Small base → small gains",
+      "visual": "money growth graph"
+    },
+    {
+      "text": "Growth builds on prior growth",
+      "visual": "money growth graph"
+    },
+    {
+      "text": "Time changes the curve",
+      "visual": "money growth graph"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "compound interest"
+  ]
+}
