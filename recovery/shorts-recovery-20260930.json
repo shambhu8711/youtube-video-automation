@@ -1,0 +1,6 @@
+{
+  "date": "20260930",
+  "slots": ["0800", "1000"],
+  "jobs": ["20260930-0800-keyboard-qwerty", "20260930-1000-ocean-pressure"],
+  "retry": 3
+}
