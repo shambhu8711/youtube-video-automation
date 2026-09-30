@@ -1,0 +1,136 @@
+name: Long Form Recovery Watchdog
+
+on:
+  schedule:
+    # Check every 30 minutes. Recovery logic uses IST and only processes due slots.
+    - cron: '15,45 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: long-form-production
+  cancel-in-progress: false
+
+jobs:
+  recover-missed-long-form:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install production tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -r requirements-production.txt
+
+      - name: Generate today's long-form queue and find missed due slots
+        id: due
+        run: |
+          python generate_daily_jobs.py
+          python - <<'PY'
+          import glob,json,os
+          from datetime import datetime,timezone,timedelta
+          now=datetime.now(timezone(timedelta(hours=5,minutes=30)))
+          today=now.strftime('%Y%m%d')
+          now_mins=now.hour*60+now.minute
+          # Grace period allows the normal scheduled workflow to finish first.
+          slots=[('1030',10*60+30),('1530',15*60+30),('2030',20*60+30)]
+          missing=[]
+          for slot,mins in slots:
+              if now_mins < mins+45:
+                  continue
+              job=f'longform/jobs/{today}-{slot}.json'
+              if not os.path.exists(job):
+                  print('MISSING_JOB_FILE',job)
+                  continue
+              j=json.load(open(job))
+              key=j.get('job_key') or f'{today}-{slot}-long'
+              state=f'state/uploads/{key}.json'
+              if os.path.exists(state):
+                  print('ALREADY_PUBLISHED',slot,key)
+              else:
+                  print('RECOVERY_REQUIRED',slot,key)
+                  missing.append(slot)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('slots='+','.join(missing)+'\n')
+          PY
+
+      - name: Recover all missed due editions
+        if: steps.due.outputs.slots != ''
+        env:
+          SLOTS: ${{ steps.due.outputs.slots }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          IFS=',' read -ra slot_list <<< "$SLOTS"
+          for SLOT in "${slot_list[@]}"; do
+            echo "RECOVERING_LONG_FORM_SLOT $SLOT"
+            python - "$SLOT" <<'PY'
+          import json,os,shutil,sys
+          from datetime import datetime,timezone,timedelta
+          slot=sys.argv[1]
+          now=datetime.now(timezone(timedelta(hours=5,minutes=30)))
+          p=f'longform/jobs/{now:%Y%m%d}-{slot}.json'
+          if not os.path.exists(p): raise SystemExit('Missing long-form edition '+p)
+          shutil.copyfile(p,'longform_job.json')
+          PY
+            python -c 'import json; j=json.load(open("longform_job.json")); open("long_script.txt","w").write(j["script"])'
+            edge-tts --voice en-US-AriaNeural --rate=-4% --text "$(cat long_script.txt)" --write-media long_voice.mp3 --write-subtitles long_captions.vtt
+            rm -rf long_frames
+            python longform/render_long.py
+            python longform/make_thumbnail.py --job longform_job.json --out thumbnail.jpg
+            ffmpeg -y -framerate 30 -i long_frames/%05d.jpg -i long_voice.mp3 -vf "subtitles=long_captions.vtt:force_style='FontName=DejaVu Sans,FontSize=22,Outline=2,Alignment=2,MarginV=55'" -c:v libx264 -preset veryfast -crf 24 -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest longform.mp4
+            ffprobe -v error -show_entries stream=codec_type,width,height -show_entries format=duration -of json longform.mp4 > long_ffprobe.json
+            python - <<'PY'
+          import json
+          j=json.load(open('long_ffprobe.json')); s=j['streams']
+          v=next(x for x in s if x['codec_type']=='video')
+          assert (v['width'],v['height'])==(1920,1080)
+          assert any(x['codec_type']=='audio' for x in s)
+          d=float(j['format']['duration']); assert 120 <= d <= 900,d
+          PY
+            KEY=$(python -c 'import json; print(json.load(open("longform_job.json"))["job_key"])')
+            if [ -f "state/uploads/$KEY.json" ]; then
+              echo "ALREADY_PUBLISHED $KEY"
+              continue
+            fi
+            uploaded=0
+            for attempt in 1 2 3; do
+              if python youtube_publish.py --video longform.mp4 --job longform_job.json --privacy public --thumbnail thumbnail.jpg; then
+                uploaded=1
+                break
+              fi
+              rc=$?
+              if [ "$rc" -eq 79 ]; then echo "::warning::YouTube upload limit reached"; exit 79; fi
+              test "$rc" -ne 78 || exit "$rc"
+              test "$attempt" -lt 3 || exit "$rc"
+              sleep 300
+            done
+            test "$uploaded" -eq 1
+            test -s youtube_upload_state.json
+            mkdir -p state/uploads
+            cp youtube_upload_state.json "state/uploads/$KEY.json"
+            git config user.name "youtube-automation[bot]"
+            git config user.email "youtube-automation[bot]@users.noreply.github.com"
+            git add state/uploads/
+            if ! git diff --cached --quiet; then
+              git commit -m "Record recovered long-form YouTube upload $KEY [skip ci]"
+              for n in 1 2 3; do
+                git pull --rebase origin main && git push origin HEAD:main && break
+                test "$n" -lt 3 || exit 1
+                sleep 10
+              done
+            fi
+          done
+
+      - name: No recovery required
+        if: steps.due.outputs.slots == ''
+        run: echo "All due long-form slots already have upload records."
