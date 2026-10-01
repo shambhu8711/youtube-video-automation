@@ -15,6 +15,7 @@ on:
       - 'state/uploads/*.json'
       - '.github/workflows/render-test.yml'
 
+# Recovery trigger: 2026-10-01 missing due Shorts
 permissions:
   contents: write
 
@@ -81,7 +82,6 @@ jobs:
             sha256sum motion/*.png > motion_hashes.txt
             test "$(cut -d' ' -f1 motion_hashes.txt | sort -u | wc -l)" -ge 4
             test -s visual_signature.txt
-
             uploaded=0
             for attempt in 1 2 3; do
               echo "YouTube upload attempt $attempt/3 for $job_key"
@@ -93,7 +93,6 @@ jobs:
               if [ "$attempt" -lt 3 ]; then sleep 300; fi
             done
             test "$uploaded" -eq 1
-
             mkdir -p state/uploads
             cp youtube_upload_state.json "state/uploads/$job_key.json"
             git config user.name "youtube-automation[bot]"
