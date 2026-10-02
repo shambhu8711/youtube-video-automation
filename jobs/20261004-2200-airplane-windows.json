@@ -1,0 +1,27 @@
+{
+  "job_key": "20261004-2200-airplane-windows",
+  "title": "Why Airplane Windows Are Rounded #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Early pressurized aircraft helped engineers learn that sharp corners can concentrate stress. Modern passenger windows use rounded shapes so loads flow more smoothly through the fuselage structure. The window is only one part of a carefully engineered pressure vessel, but avoiding sharp corners helps reduce dangerous stress concentrations.",
+  "scenes": [
+    {
+      "text": "Cabin pressure loads fuselage",
+      "visual": "airplane window engineering"
+    },
+    {
+      "text": "Sharp corners concentrate stress",
+      "visual": "airplane window engineering"
+    },
+    {
+      "text": "Curves distribute load better",
+      "visual": "airplane window engineering"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "airplane windows"
+  ]
+}
