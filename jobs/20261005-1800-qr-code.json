@@ -1,0 +1,27 @@
+{
+  "job_key": "20261005-1800-qr-code",
+  "title": "Why QR Codes Can Still Work When Damaged #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "QR codes include error-correction information. Depending on the correction level and where damage occurs, software can reconstruct missing portions and still decode the message. That is why some QR designs can include small logos or survive scratches. Damage is not unlimited, though; enough missing critical data will make the code unreadable.",
+  "scenes": [
+    {
+      "text": "Data includes redundancy",
+      "visual": "qr pixels technology"
+    },
+    {
+      "text": "Software reconstructs parts",
+      "visual": "qr pixels technology"
+    },
+    {
+      "text": "Too much damage still fails",
+      "visual": "qr pixels technology"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "qr code"
+  ]
+}
