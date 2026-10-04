@@ -1,0 +1,27 @@
+{
+  "job_key": "20261006-2000-barcode",
+  "title": "The Hidden Logic Behind a Barcode #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "A barcode converts an identifier into patterns of dark and light spaces that scanners can read. The code usually points to database information rather than storing an entire product description itself. Check digits and standardized structures help detect reading errors, turning a simple printed pattern into a reliable link between physical items and digital records.",
+  "scenes": [
+    {
+      "text": "Bars encode an identifier",
+      "visual": "barcode scanner retail"
+    },
+    {
+      "text": "Scanner reads spacing",
+      "visual": "barcode scanner retail"
+    },
+    {
+      "text": "Database supplies the details",
+      "visual": "barcode scanner retail"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "barcode"
+  ]
+}

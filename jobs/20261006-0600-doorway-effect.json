@@ -1,0 +1,27 @@
+{
+  "job_key": "20261006-0600-doorway-effect",
+  "title": "Why You Forget After Walking Into Another Room #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Researchers use the term doorway effect for situations where crossing an event boundary can make a recent intention harder to retrieve. A change of context may cause the brain to update what it is actively tracking. The effect is not universal, but it helps explain why returning to the previous context can sometimes remind you what you wanted.",
+  "scenes": [
+    {
+      "text": "An intention is active",
+      "visual": "brain doorway memory"
+    },
+    {
+      "text": "Context suddenly changes",
+      "visual": "brain doorway memory"
+    },
+    {
+      "text": "Returning can cue memory",
+      "visual": "brain doorway memory"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "doorway effect"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "job_key": "20261006-2200-moon-footprints",
+  "title": "Why Apollo Footprints Can Last So Long #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "The Moon has no weather like Earth's rain and wind, so footprints left in lunar soil are not quickly erased by those processes. Micrometeorite impacts and other space-weathering effects can alter the surface over very long periods, so the prints are not literally permanent. They can nevertheless persist far longer than footprints on Earth.",
+  "scenes": [
+    {
+      "text": "No rain or wind",
+      "visual": "moon astronaut footprint"
+    },
+    {
+      "text": "Tracks are not quickly erased",
+      "visual": "moon astronaut footprint"
+    },
+    {
+      "text": "Space weathering is very slow",
+      "visual": "moon astronaut footprint"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "moon footprints"
+  ]
+}
