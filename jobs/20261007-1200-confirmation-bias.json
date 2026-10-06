@@ -1,0 +1,27 @@
+{
+  "job_key": "20261007-1200-confirmation-bias",
+  "title": "How Confirmation Bias Changes What We Notice #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Confirmation bias describes a tendency to seek, notice, or interpret information in ways that support an existing belief. It can affect everyone, especially when a topic feels important. One practical countermeasure is to deliberately ask what evidence would change your mind and then examine credible information that challenges your first conclusion.",
+  "scenes": [
+    {
+      "text": "Belief shapes attention",
+      "visual": "brain evidence psychology"
+    },
+    {
+      "text": "Supporting evidence feels easier",
+      "visual": "brain evidence psychology"
+    },
+    {
+      "text": "Seek disconfirming evidence",
+      "visual": "brain evidence psychology"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "confirmation bias"
+  ]
+}

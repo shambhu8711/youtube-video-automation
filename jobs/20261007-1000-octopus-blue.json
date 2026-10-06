@@ -1,0 +1,27 @@
+{
+  "job_key": "20261007-1000-octopus-blue",
+  "title": "Why Octopus Blood Is Blue #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Octopuses use a copper-containing oxygen transport protein called hemocyanin rather than the iron-rich hemoglobin humans use. Oxygenated hemocyanin appears blue. It can work effectively in cold, low-oxygen marine conditions, helping these animals transport oxygen through very different environments from ours.",
+  "scenes": [
+    {
+      "text": "Humans use hemoglobin",
+      "visual": "octopus ocean biology"
+    },
+    {
+      "text": "Octopuses use hemocyanin",
+      "visual": "octopus ocean biology"
+    },
+    {
+      "text": "Copper chemistry looks blue",
+      "visual": "octopus ocean biology"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "octopus blue"
+  ]
+}
