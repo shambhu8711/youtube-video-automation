@@ -1,0 +1,27 @@
+{
+  "job_key": "20261009-2000-wifi-name",
+  "title": "What Wi-Fi Actually Means #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Wi-Fi is a trademarked name used for wireless networking products based on IEEE 802.11 standards. A popular myth says the name is short for wireless fidelity, but the Wi-Fi Alliance has explained that it was created as a brand name rather than a technical acronym. The familiar term is marketing wrapped around complex radio standards.",
+  "scenes": [
+    {
+      "text": "IEEE 802.11 is technical",
+      "visual": "wifi radio technology"
+    },
+    {
+      "text": "Wi-Fi is the brand name",
+      "visual": "wifi radio technology"
+    },
+    {
+      "text": "Not a technical acronym",
+      "visual": "wifi radio technology"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "wifi name"
+  ]
+}
