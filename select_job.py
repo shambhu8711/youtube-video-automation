@@ -36,7 +36,7 @@ else:
         j=json.load(open(p,encoding="utf-8"))
         key=j.get("job_key","")
         m=re.match(r"^(\d{8})-(\d{4})-",key)
-        if not m or key in done: continue
+        if not m or key in done or j.get("language")!="hi-IN": continue
         slug=re.sub(r"^\\d{8}-\\d{4}-", "", key)
         digest=hashlib.sha256(j.get("script","").strip().lower().encode()).hexdigest()
         if slug in published_slugs or digest in published_hashes:
