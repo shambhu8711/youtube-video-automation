@@ -15,7 +15,7 @@ on:
       - 'state/uploads/*.json'
       - '.github/workflows/render-test.yml'
 
-# Recovery trigger: 2026-10-01 missing due Shorts
+# Recovery trigger: 2026-10-09 missing due Shorts (automated backlog retry)
 permissions:
   contents: write
 
