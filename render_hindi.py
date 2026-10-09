@@ -70,7 +70,7 @@ def person(d,who,cx,cy,active,t,mouth_energy=0):
     if active:
         opening=2+int(40*mouth_energy)
         oval(-32,4,32,4+opening*2,fill=(115,40,53))
-        d.arc((*xy(-23,7),*xy(23,opening*2+2)),5,175,fill=(255,182,170),width=5)
+        d.arc((*xy(-23,7),*xy(23,max(8,opening*2+2))),5,175,fill=(255,182,170),width=5)
     else:
         d.arc((*xy(-36,-6),*xy(36,45)),10,170,fill=(123,57,64),width=7)
     if who=="father":
