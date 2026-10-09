@@ -72,7 +72,21 @@ jobs:
             rm -rf frames motion voice.mp3 captions.vtt final_short.mp4 exact_audio.wav ffprobe.json loudness.txt transcript.txt transcript_score.txt motion_hashes.txt intended.txt visual_signature.txt
             mkdir -p frames
             python -c 'import json; j=json.load(open("selected_job.json")); open("intended.txt","w").write(j["script"])'
-            edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt
+            # Retry transient Edge TTS WebSocket 500/handshake failures before aborting the backlog.
+            tts_ok=0
+            for tts_attempt in 1 2 3 4 5; do
+              rm -f voice.mp3 captions.vtt
+              echo "TTS attempt $tts_attempt/5 for $job_key"
+              if edge-tts --voice en-US-AriaNeural --rate=-5% --text "$(cat intended.txt)" --write-media voice.mp3 --write-subtitles captions.vtt && test -s voice.mp3 && test -s captions.vtt; then
+                tts_ok=1
+                break
+              fi
+              if [ "$tts_attempt" -lt 5 ]; then sleep $((tts_attempt * 30)); fi
+            done
+            if [ "$tts_ok" -ne 1 ]; then
+              echo "::error::TTS failed after five attempts for $job_key; backlog preserved"
+              exit 1
+            fi
             python render.py
             ffmpeg -y -framerate 30 -i frames/%05d.png -i voice.mp3 -vf "subtitles=captions.vtt:force_style='FontName=DejaVu Sans,FontSize=18,Outline=2,Alignment=2,MarginV=90'" -c:v libx264 -crf 23 -preset ultrafast -pix_fmt yuv420p -c:a aac -b:a 160k -af loudnorm=I=-15:TP=-1:LRA=7 -shortest final_short.mp4
             ffprobe -v error -show_entries stream=codec_type,width,height,r_frame_rate -show_entries format=duration -of json final_short.mp4 > ffprobe.json
