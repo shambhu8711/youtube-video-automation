@@ -1,0 +1,63 @@
+{
+  "script_id": "HFC-0001",
+  "concept_id": "FAM-001",
+  "title": "टिफिन का किराया 😂 | घर की कॉमेडी",
+  "language": "hi-IN",
+  "aspect_ratio": "9:16",
+  "characters": [
+    {
+      "speaker_id": "child",
+      "name": "चिंटू",
+      "voice_key": "child_fictional_hi"
+    },
+    {
+      "speaker_id": "mother",
+      "name": "माँ",
+      "voice_key": "adult_woman_hi"
+    },
+    {
+      "speaker_id": "father",
+      "name": "पापा",
+      "voice_key": "adult_man_hi"
+    }
+  ],
+  "dialogue": [
+    {
+      "segment_id": "L01",
+      "speaker_id": "mother",
+      "text": "घर में ये क्या हो गया?"
+    },
+    {
+      "segment_id": "L02",
+      "speaker_id": "mother",
+      "text": "टिफिन खाली क्यों लौट आया?"
+    },
+    {
+      "segment_id": "L03",
+      "speaker_id": "child",
+      "text": "दोस्तों को खाना किराए पर दिया था।"
+    },
+    {
+      "segment_id": "L04",
+      "speaker_id": "father",
+      "text": "खाना वापस कैसे आएगा?"
+    },
+    {
+      "segment_id": "L05",
+      "speaker_id": "child",
+      "text": "कल उनके टिफिन से वसूली करूँगा।"
+    },
+    {
+      "segment_id": "L06",
+      "speaker_id": "mother",
+      "text": "बेटा, यह लंच है, लोन नहीं।"
+    },
+    {
+      "segment_id": "L07",
+      "speaker_id": "father",
+      "text": "मेरे ऑफिस में तो डिब्बा भी वापस नहीं आता।"
+    }
+  ],
+  "production_status": "pilot_script_only_not_rendered",
+  "source_file": "Hindi-Family-Comedy-1000-Scripts(1).json"
+}
