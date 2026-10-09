@@ -5,7 +5,9 @@ from PIL import Image, ImageDraw, ImageFont
 job=json.load(open("selected_job.json",encoding="utf-8"))
 scenes=job["scenes"]
 W,H,FPS=1080,1920,30
-duration=max(18,min(59,float(os.environ.get("AUDIO_DURATION","24"))))
+timeline=json.load(open("speech_timeline.json",encoding="utf-8"))
+duration=timeline[-1]["end"]
+if not (18<=duration<=59): raise SystemExit(f"Speech duration {duration:.1f}s outside Shorts QA limits")
 font_path="/usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf"
 if not os.path.isfile(font_path):
     raise SystemExit("Noto Sans Devanagari font required")
@@ -23,7 +25,7 @@ def wrapped(d,text,max_width):
     if line: lines.append(line)
     return lines
 
-def person(d,who,cx,cy,active,t):
+def person(d,who,cx,cy,active,t,mouth_energy=0):
     child=who=="child"
     scale=.86 if child else 1.0
     skin=(240,181,134) if who=="father" else (250,199,156)
@@ -66,7 +68,7 @@ def person(d,who,cx,cy,active,t):
     # Nose, cheeks and smile/talking mouth
     d.line([xy(0,-59),xy(-7,-21),xy(8,-18)],fill=(180,109,83),width=5)
     if active:
-        opening=17+int(12*abs(math.sin(t*13)))
+        opening=2+int(40*mouth_energy)
         oval(-32,4,32,4+opening*2,fill=(115,40,53))
         d.arc((*xy(-23,7),*xy(23,opening*2+2)),5,175,fill=(255,182,170),width=5)
     else:
@@ -85,9 +87,12 @@ names={"child":"चिंटू","mother":"माँ","father":"पापा"}
 backgrounds=[(33,53,91),(72,48,98),(37,84,82),(90,54,76)]
 for frame in range(math.ceil(duration*FPS)):
     t=frame/FPS
-    idx=min(len(scenes)-1,int(t/duration*len(scenes)))
-    scene=scenes[idx]
+    idx=next((i for i,seg in enumerate(timeline) if seg["start"]<=t<seg["end"]),len(timeline)-1)
+    scene=timeline[idx]
     speaker=scene.get("speaker","child")
+    local=max(0,t-scene["start"])
+    envelope=scene["mouth_energy_20ms"]
+    energy=envelope[min(len(envelope)-1,int(local/0.02))] if envelope else 0
     im=Image.new("RGB",(W,H),backgrounds[idx%len(backgrounds)])
     d=ImageDraw.Draw(im)
     # Family room, window and floor
@@ -96,9 +101,9 @@ for frame in range(math.ceil(duration*FPS)):
     d.line((225,355,225,610),fill=(255,255,255),width=12)
     d.rectangle((65,1040,1015,1120),fill=(174,125,97))
     d.rounded_rectangle((70,1050,1010,1195),radius=55,fill=(154,103,82))
-    person(d,"child",235,770,speaker=="child",t)
-    person(d,"mother",535,770,speaker=="mother",t)
-    person(d,"father",835,770,speaker=="father",t)
+    person(d,"child",235,770,speaker=="child",t,energy if speaker=="child" else 0)
+    person(d,"mother",535,770,speaker=="mother",t,energy if speaker=="mother" else 0)
+    person(d,"father",835,770,speaker=="father",t,energy if speaker=="father" else 0)
     d.rounded_rectangle((55,95,1025,242),radius=40,fill=(255,220,115))
     d.text((100,133),"हिंदी फैमिली कॉमेडी",font=small,fill=(35,35,58))
     d.rounded_rectangle((65,1240,1015,1705),radius=52,fill=(255,252,241))
