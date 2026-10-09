@@ -16,6 +16,7 @@ on:
       - '.github/workflows/render-test.yml'
 
 # Recovery trigger: 2026-10-09 missing due Shorts (automated backlog retry)
+# Recovery re-trigger: 2026-10-09 user-requested missed-slot replay
 permissions:
   contents: write
 
