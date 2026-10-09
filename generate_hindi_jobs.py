@@ -9,11 +9,13 @@ for path in sorted(glob.glob("script_bank/hindi_family_comedy_batch_*.json")):
 if not records: raise SystemExit("No Hindi scripts imported")
 records.sort(key=lambda s:s["sequence_index"])
 os.makedirs("jobs",exist_ok=True)
-for offset in (-1,0,1):
+for offset in (-1,0):
     day=today+timedelta(days=offset)
     for i,h in enumerate(range(0,24,2)):
         # Distinct script per slot; interleaved premise ordering in source.
-        script=records[((day.toordinal()-datetime(2026,10,9).date().toordinal())*12+i)%len(records)]
+        idx=((day.toordinal()-datetime(2026,10,9).date().toordinal())*12+i)
+        if idx < 0 or idx >= len(records): continue
+        script=records[idx]
         key=f"{day:%Y%m%d}-{h:02d}00-{script['script_id'].lower()}"
         path="jobs/"+key+".json"
         if os.path.exists(path): continue
