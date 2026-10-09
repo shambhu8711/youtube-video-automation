@@ -911,6 +911,3882 @@
         "channel_id": null,
         "video_id": null
       }
+    },
+    {
+      "script_id": "HFC-0005",
+      "sequence_index": 5,
+      "concept_id": "FAM-005",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "चाय का प्रदर्शन 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 23,
+      "duration_is_estimate": true,
+      "spoken_word_count": 50,
+      "aspect_ratio": "9:16",
+      "setting_hi": "बालकनी",
+      "props_hi": [
+        "खाली कप"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "चाय का प्रदर्शन? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "मेहमानों को खाली कप क्यों दिए?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "पहले कप का प्रदर्शन, चाय बाद में।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "चाय आने में कितनी देर है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "जब सब कप की तारीफ कर देंगे।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "कप छोड़ो, केतली में पानी तो भरो।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मैं तीन बार तारीफ कर चुका हूँ, मेरा कप भर दो।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nमेहमानों को खाली कप क्यों दिए?\nपहले कप का प्रदर्शन, चाय बाद में।\nचाय आने में कितनी देर है?\nजब सब कप की तारीफ कर देंगे।\nकप छोड़ो, केतली में पानी तो भरो।\nमैं तीन बार तारीफ कर चुका हूँ, मेरा कप भर दो।",
+      "punchline_hi": "मैं तीन बार तारीफ कर चुका हूँ, मेरा कप भर दो।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at बालकनी; show खाली कप clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "बालकनी में खाली कप दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खाली कप visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खाली कप visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep खाली कप visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खाली कप visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खाली कप visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बालकनी. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "चाय का प्रदर्शन",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "चाय का प्रदर्शन 😂 | घर की कॉमेडी",
+        "description": "चाय का प्रदर्शन पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "चाय का प्रदर्शन"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "चाय का प्रदर्शन",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0005",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0006",
+      "sequence_index": 6,
+      "concept_id": "FAM-006",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "सलाद का केक 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 48,
+      "aspect_ratio": "9:16",
+      "setting_hi": "डाइनिंग टेबल",
+      "props_hi": [
+        "खीरे का टावर"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "सलाद का केक? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "खीरे पर मोमबत्ती क्यों लगाई?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "सलाद का जन्मदिन है, आज कोई मना नहीं करेगा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "फिर केक किसे मिलेगा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "जो खीरा खाएगा, उसे केक की फोटो मिलेगी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "तुम्हारे लिए भी चॉकलेट की फोटो रखी है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मैंने फोटो में ही दूसरी प्लेट ले ली।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nखीरे पर मोमबत्ती क्यों लगाई?\nसलाद का जन्मदिन है, आज कोई मना नहीं करेगा।\nफिर केक किसे मिलेगा?\nजो खीरा खाएगा, उसे केक की फोटो मिलेगी।\nतुम्हारे लिए भी चॉकलेट की फोटो रखी है।\nमैंने फोटो में ही दूसरी प्लेट ले ली।",
+      "punchline_hi": "मैंने फोटो में ही दूसरी प्लेट ले ली।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at डाइनिंग टेबल; show खीरे का टावर clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "डाइनिंग टेबल में खीरे का टावर दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खीरे का टावर visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खीरे का टावर visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep खीरे का टावर visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खीरे का टावर visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खीरे का टावर visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "सलाद का केक",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "सलाद का केक 😂 | घर की कॉमेडी",
+        "description": "सलाद का केक पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "सलाद का केक"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "सलाद का केक",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0006",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0007",
+      "sequence_index": 7,
+      "concept_id": "FAM-007",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "दाल की रेटिंग 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 48,
+      "aspect_ratio": "9:16",
+      "setting_hi": "डाइनिंग टेबल",
+      "props_hi": [
+        "हाथ से बना स्टार कार्ड"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "दाल की रेटिंग? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "दाल को सिर्फ एक स्टार क्यों दिया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "बाकी चार स्टार मिठाई आने पर दूँगा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "यह समीक्षा है या सौदा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "पेट की राय खाली पेट नहीं मिलती।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "ठीक है, आज मिठाई को भी सिर्फ देखना।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरी पाँच स्टार समीक्षा कल से तैयार है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nदाल को सिर्फ एक स्टार क्यों दिया?\nबाकी चार स्टार मिठाई आने पर दूँगा।\nयह समीक्षा है या सौदा?\nपेट की राय खाली पेट नहीं मिलती।\nठीक है, आज मिठाई को भी सिर्फ देखना।\nमेरी पाँच स्टार समीक्षा कल से तैयार है।",
+      "punchline_hi": "मेरी पाँच स्टार समीक्षा कल से तैयार है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at डाइनिंग टेबल; show हाथ से बना स्टार कार्ड clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "डाइनिंग टेबल में हाथ से बना स्टार कार्ड दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep हाथ से बना स्टार कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep हाथ से बना स्टार कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep हाथ से बना स्टार कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep हाथ से बना स्टार कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep हाथ से बना स्टार कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "दाल की रेटिंग",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "दाल की रेटिंग 😂 | घर की कॉमेडी",
+        "description": "दाल की रेटिंग पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "दाल की रेटिंग"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "दाल की रेटिंग",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0007",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0008",
+      "sequence_index": 8,
+      "concept_id": "FAM-008",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "नाश्ते की कतार 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 47,
+      "aspect_ratio": "9:16",
+      "setting_hi": "रसोई के बाहर",
+      "props_hi": [
+        "नंबर वाली पर्चियाँ"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "नाश्ते की कतार? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "घर में नाश्ते के टोकन क्यों बाँटे?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "पापा हर बार दो बार लाइन में लगते हैं।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "पहला नंबर किसका है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "मेरा। व्यवस्था बनाने का फायदा तो मिले।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "आखिरी नंबर भी तुम्हारा—बर्तन समेटने का।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मुझे बीच वाला नंबर दो, मैं चुप रहूँगा।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nघर में नाश्ते के टोकन क्यों बाँटे?\nपापा हर बार दो बार लाइन में लगते हैं।\nपहला नंबर किसका है?\nमेरा। व्यवस्था बनाने का फायदा तो मिले।\nआखिरी नंबर भी तुम्हारा—बर्तन समेटने का।\nमुझे बीच वाला नंबर दो, मैं चुप रहूँगा।",
+      "punchline_hi": "मुझे बीच वाला नंबर दो, मैं चुप रहूँगा।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at रसोई के बाहर; show नंबर वाली पर्चियाँ clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "रसोई के बाहर में नंबर वाली पर्चियाँ दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep नंबर वाली पर्चियाँ visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep नंबर वाली पर्चियाँ visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep नंबर वाली पर्चियाँ visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep नंबर वाली पर्चियाँ visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep नंबर वाली पर्चियाँ visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: रसोई के बाहर. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "नाश्ते की कतार",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "नाश्ते की कतार 😂 | घर की कॉमेडी",
+        "description": "नाश्ते की कतार पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "नाश्ते की कतार"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "नाश्ते की कतार",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0008",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0009",
+      "sequence_index": 9,
+      "concept_id": "FAM-009",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "चम्मच की छुट्टी 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 46,
+      "aspect_ratio": "9:16",
+      "setting_hi": "डाइनिंग टेबल",
+      "props_hi": [
+        "चम्मच पर छोटा नोट"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "चम्मच की छुट्टी? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "चम्मच पर छुट्टी की अर्जी किसने रखी?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "मैंने। रोज इतना काम करता है बेचारा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "आज दही कैसे खाओगे?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "दूसरा चम्मच रख लेंगे, यह आराम करेगा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "फिर होमवर्क भी दूसरी पेंसिल से कर लेना।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरी कुर्सी भी छुट्टी माँग रही है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nचम्मच पर छुट्टी की अर्जी किसने रखी?\nमैंने। रोज इतना काम करता है बेचारा।\nआज दही कैसे खाओगे?\nदूसरा चम्मच रख लेंगे, यह आराम करेगा।\nफिर होमवर्क भी दूसरी पेंसिल से कर लेना।\nमेरी कुर्सी भी छुट्टी माँग रही है।",
+      "punchline_hi": "मेरी कुर्सी भी छुट्टी माँग रही है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at डाइनिंग टेबल; show चम्मच पर छोटा नोट clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "डाइनिंग टेबल में चम्मच पर छोटा नोट दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep चम्मच पर छोटा नोट visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep चम्मच पर छोटा नोट visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep चम्मच पर छोटा नोट visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep चम्मच पर छोटा नोट visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep चम्मच पर छोटा नोट visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "चम्मच की छुट्टी",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "चम्मच की छुट्टी 😂 | घर की कॉमेडी",
+        "description": "चम्मच की छुट्टी पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "चम्मच की छुट्टी"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "चम्मच की छुट्टी",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0009",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0010",
+      "sequence_index": 10,
+      "concept_id": "FAM-010",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "घर और खाना",
+      "language": "hi-IN",
+      "title_hi": "रात की मिठाई 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 49,
+      "aspect_ratio": "9:16",
+      "setting_hi": "डाइनिंग टेबल",
+      "props_hi": [
+        "मिठाई का बंद डिब्बा"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "रात की मिठाई? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "मिठाई पर अलार्म क्यों लगाया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "पापा कहते हैं सही समय पर खाना चाहिए।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "अलार्म हर दो मिनट में क्यों बजता है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "सही समय बार-बार आ रहा है।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "सब्जी का सही समय अभी आया है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरा अलार्म तो मिठाई देखकर अपने आप बजता है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nमिठाई पर अलार्म क्यों लगाया?\nपापा कहते हैं सही समय पर खाना चाहिए।\nअलार्म हर दो मिनट में क्यों बजता है?\nसही समय बार-बार आ रहा है।\nसब्जी का सही समय अभी आया है।\nमेरा अलार्म तो मिठाई देखकर अपने आप बजता है।",
+      "punchline_hi": "मेरा अलार्म तो मिठाई देखकर अपने आप बजता है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at डाइनिंग टेबल; show मिठाई का बंद डिब्बा clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "डाइनिंग टेबल में मिठाई का बंद डिब्बा दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep मिठाई का बंद डिब्बा visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep मिठाई का बंद डिब्बा visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep मिठाई का बंद डिब्बा visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep मिठाई का बंद डिब्बा visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep मिठाई का बंद डिब्बा visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: डाइनिंग टेबल. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "रात की मिठाई",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "रात की मिठाई 😂 | घर की कॉमेडी",
+        "description": "रात की मिठाई पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "रात की मिठाई"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "रात की मिठाई",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0010",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0011",
+      "sequence_index": 11,
+      "concept_id": "FAM-011",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "होमवर्क की छुट्टी 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 23,
+      "duration_is_estimate": true,
+      "spoken_word_count": 51,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "छुट्टी का कागज"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "होमवर्क की छुट्टी? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "कॉपी पर छुट्टी की अर्जी क्यों है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "होमवर्क रोज आता है, उसे भी आराम चाहिए।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "अर्जी किससे मंजूर कराई?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "रबर से। उसने नीचे के सारे सवाल मिटा दिए।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "आज सवाल वापस लिखने का काम मिल गया।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरे ऑफिस की फाइलों को ऐसी रबर कहाँ मिलेगी?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nकॉपी पर छुट्टी की अर्जी क्यों है?\nहोमवर्क रोज आता है, उसे भी आराम चाहिए।\nअर्जी किससे मंजूर कराई?\nरबर से। उसने नीचे के सारे सवाल मिटा दिए।\nआज सवाल वापस लिखने का काम मिल गया।\nमेरे ऑफिस की फाइलों को ऐसी रबर कहाँ मिलेगी?",
+      "punchline_hi": "मेरे ऑफिस की फाइलों को ऐसी रबर कहाँ मिलेगी?",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show छुट्टी का कागज clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में छुट्टी का कागज दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep छुट्टी का कागज visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep छुट्टी का कागज visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep छुट्टी का कागज visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep छुट्टी का कागज visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep छुट्टी का कागज visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "होमवर्क की छुट्टी",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "होमवर्क की छुट्टी 😂 | घर की कॉमेडी",
+        "description": "होमवर्क की छुट्टी पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "होमवर्क की छुट्टी"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "होमवर्क की छुट्टी",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0011",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0012",
+      "sequence_index": 12,
+      "concept_id": "FAM-012",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "भारी स्कूल बैग 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 23,
+      "duration_is_estimate": true,
+      "spoken_word_count": 50,
+      "aspect_ratio": "9:16",
+      "setting_hi": "बैठक",
+      "props_hi": [
+        "बैग और खिलौना तराजू"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "भारी स्कूल बैग? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "बैग में तकिया क्यों रखा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "इतनी किताबें लेकर सपने भी भारी आते हैं।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "स्कूल पढ़ने जाते हो या सोने?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "तकिया किताबों के लिए है, वे रात भर खुली थीं।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "फिर कल किताबें परीक्षा देंगी क्या?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरी किताबें तो मुझे देखते ही सो जाती थीं।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nबैग में तकिया क्यों रखा?\nइतनी किताबें लेकर सपने भी भारी आते हैं।\nस्कूल पढ़ने जाते हो या सोने?\nतकिया किताबों के लिए है, वे रात भर खुली थीं।\nफिर कल किताबें परीक्षा देंगी क्या?\nमेरी किताबें तो मुझे देखते ही सो जाती थीं।",
+      "punchline_hi": "मेरी किताबें तो मुझे देखते ही सो जाती थीं।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at बैठक; show बैग और खिलौना तराजू clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "बैठक में बैग और खिलौना तराजू दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep बैग और खिलौना तराजू visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep बैग और खिलौना तराजू visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep बैग और खिलौना तराजू visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep बैग और खिलौना तराजू visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep बैग और खिलौना तराजू visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "भारी स्कूल बैग",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "भारी स्कूल बैग 😂 | घर की कॉमेडी",
+        "description": "भारी स्कूल बैग पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "भारी स्कूल बैग"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "भारी स्कूल बैग",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0012",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0013",
+      "sequence_index": 13,
+      "concept_id": "FAM-013",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "रबर की नौकरी 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 44,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "रबर का नाम-पत्र"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "रबर की नौकरी? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "रबर का पद मिटाने वाला अधिकारी क्यों है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "मेरी गलतियाँ बिना शिकायत साफ करता है।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "पेंसिल का पद क्या रखा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "गलतियाँ पैदा करने वाला अधिकारी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "और तुम्हारा पद—दोनों का काम बढ़ाने वाला।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मुझे रबर वाला विभाग पसंद है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nरबर का पद मिटाने वाला अधिकारी क्यों है?\nमेरी गलतियाँ बिना शिकायत साफ करता है।\nपेंसिल का पद क्या रखा?\nगलतियाँ पैदा करने वाला अधिकारी।\nऔर तुम्हारा पद—दोनों का काम बढ़ाने वाला।\nमुझे रबर वाला विभाग पसंद है।",
+      "punchline_hi": "मुझे रबर वाला विभाग पसंद है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show रबर का नाम-पत्र clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में रबर का नाम-पत्र दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep रबर का नाम-पत्र visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep रबर का नाम-पत्र visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep रबर का नाम-पत्र visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep रबर का नाम-पत्र visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep रबर का नाम-पत्र visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "रबर की नौकरी",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "रबर की नौकरी 😂 | घर की कॉमेडी",
+        "description": "रबर की नौकरी पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "रबर की नौकरी"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "रबर की नौकरी",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0013",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0014",
+      "sequence_index": 14,
+      "concept_id": "FAM-014",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "गणित की दुकान 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 45,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "कागज के सिक्के"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "गणित की दुकान? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "जोड़ के सवाल में बिल क्यों बनाया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "हर अंक को जोड़ने का सेवा शुल्क लगेगा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "दो और दो कितने होंगे?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "चार, लेकिन शुल्क मिलाकर छह।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "उत्तर गलत, दुकान बंद।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरी खरीदारी का बिल भी इसी स्कूल से आता है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nजोड़ के सवाल में बिल क्यों बनाया?\nहर अंक को जोड़ने का सेवा शुल्क लगेगा।\nदो और दो कितने होंगे?\nचार, लेकिन शुल्क मिलाकर छह।\nउत्तर गलत, दुकान बंद।\nमेरी खरीदारी का बिल भी इसी स्कूल से आता है।",
+      "punchline_hi": "मेरी खरीदारी का बिल भी इसी स्कूल से आता है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show कागज के सिक्के clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में कागज के सिक्के दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep कागज के सिक्के visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep कागज के सिक्के visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep कागज के सिक्के visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep कागज के सिक्के visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep कागज के सिक्के visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "गणित की दुकान",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "गणित की दुकान 😂 | घर की कॉमेडी",
+        "description": "गणित की दुकान पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "गणित की दुकान"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "गणित की दुकान",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0014",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0015",
+      "sequence_index": 15,
+      "concept_id": "FAM-015",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "सुंदर लिखावट 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 23,
+      "duration_is_estimate": true,
+      "spoken_word_count": 52,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "बड़ी लिखावट वाली कॉपी"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "सुंदर लिखावट? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "एक पन्ने पर सिर्फ दो शब्द क्यों?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "आपने कहा था अक्षर बड़े और साफ होने चाहिए।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "पूरा उत्तर कहाँ लिखोगे?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "इसके लिए अगली कॉपी बुक करनी पड़ेगी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "कॉपी नहीं, थोड़ा छोटा अक्षर बुक करो।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरा हस्ताक्षर भी इतना छोटा है कि मैं खुद भूल जाता हूँ।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nएक पन्ने पर सिर्फ दो शब्द क्यों?\nआपने कहा था अक्षर बड़े और साफ होने चाहिए।\nपूरा उत्तर कहाँ लिखोगे?\nइसके लिए अगली कॉपी बुक करनी पड़ेगी।\nकॉपी नहीं, थोड़ा छोटा अक्षर बुक करो।\nमेरा हस्ताक्षर भी इतना छोटा है कि मैं खुद भूल जाता हूँ।",
+      "punchline_hi": "मेरा हस्ताक्षर भी इतना छोटा है कि मैं खुद भूल जाता हूँ।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show बड़ी लिखावट वाली कॉपी clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में बड़ी लिखावट वाली कॉपी दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep बड़ी लिखावट वाली कॉपी visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep बड़ी लिखावट वाली कॉपी visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep बड़ी लिखावट वाली कॉपी visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep बड़ी लिखावट वाली कॉपी visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep बड़ी लिखावट वाली कॉपी visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "सुंदर लिखावट",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "सुंदर लिखावट 😂 | घर की कॉमेडी",
+        "description": "सुंदर लिखावट पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "सुंदर लिखावट"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "सुंदर लिखावट",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0015",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0016",
+      "sequence_index": 16,
+      "concept_id": "FAM-016",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "कविता का अर्थ 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 45,
+      "aspect_ratio": "9:16",
+      "setting_hi": "बैठक",
+      "props_hi": [
+        "कविता की किताब"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "कविता का अर्थ? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "कविता सुनाते समय छाता क्यों खोला?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "कविता में बादल आने वाले हैं।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "अंदर तो बारिश नहीं होगी।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "कविता में डूबकर पढ़ने को आपने ही कहा था।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "फिर किताब में नाव मत चलाने लगना।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मैं तालियाँ बजाऊँ या मौसम बताऊँ?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nकविता सुनाते समय छाता क्यों खोला?\nकविता में बादल आने वाले हैं।\nअंदर तो बारिश नहीं होगी।\nकविता में डूबकर पढ़ने को आपने ही कहा था।\nफिर किताब में नाव मत चलाने लगना।\nमैं तालियाँ बजाऊँ या मौसम बताऊँ?",
+      "punchline_hi": "मैं तालियाँ बजाऊँ या मौसम बताऊँ?",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at बैठक; show कविता की किताब clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "बैठक में कविता की किताब दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep कविता की किताब visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep कविता की किताब visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep कविता की किताब visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep कविता की किताब visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep कविता की किताब visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "कविता का अर्थ",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "कविता का अर्थ 😂 | घर की कॉमेडी",
+        "description": "कविता का अर्थ पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "कविता का अर्थ"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "कविता का अर्थ",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0016",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0017",
+      "sequence_index": 17,
+      "concept_id": "FAM-017",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "परीक्षा की तैयारी 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 47,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "पाँच पेंसिलें"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "परीक्षा की तैयारी? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "पाँच पेंसिलें क्यों तैयार कीं?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "एक उत्तर लिखेगी, बाकी उसका हौसला बढ़ाएँगी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "पढ़ाई कितनी हुई है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "सामान की तैयारी पूरी है, ज्ञान रास्ते में है।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "ज्ञान को फोन करो, परीक्षा कल है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरे समय भी ज्ञान अक्सर बस छोड़ देता था।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nपाँच पेंसिलें क्यों तैयार कीं?\nएक उत्तर लिखेगी, बाकी उसका हौसला बढ़ाएँगी।\nपढ़ाई कितनी हुई है?\nसामान की तैयारी पूरी है, ज्ञान रास्ते में है।\nज्ञान को फोन करो, परीक्षा कल है।\nमेरे समय भी ज्ञान अक्सर बस छोड़ देता था।",
+      "punchline_hi": "मेरे समय भी ज्ञान अक्सर बस छोड़ देता था।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show पाँच पेंसिलें clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में पाँच पेंसिलें दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep पाँच पेंसिलें visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep पाँच पेंसिलें visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep पाँच पेंसिलें visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep पाँच पेंसिलें visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep पाँच पेंसिलें visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "परीक्षा की तैयारी",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "परीक्षा की तैयारी 😂 | घर की कॉमेडी",
+        "description": "परीक्षा की तैयारी पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "परीक्षा की तैयारी"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "परीक्षा की तैयारी",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0017",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0018",
+      "sequence_index": 18,
+      "concept_id": "FAM-018",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "विज्ञान का मॉडल 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 49,
+      "aspect_ratio": "9:16",
+      "setting_hi": "बैठक",
+      "props_hi": [
+        "खाली कार्डबोर्ड बॉक्स"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "विज्ञान का मॉडल? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "विज्ञान का मॉडल खाली क्यों है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "यह अदृश्य हवा का मॉडल है।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "मेहनत कहाँ दिखाई देगी?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "हवा की तरह महसूस करनी पड़ेगी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "नंबर भी अदृश्य मिले तो शिकायत मत करना।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मैंने भी एक बार अदृश्य गुल्लक बनाई थी, पैसे सच में गायब हुए।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nविज्ञान का मॉडल खाली क्यों है?\nयह अदृश्य हवा का मॉडल है।\nमेहनत कहाँ दिखाई देगी?\nहवा की तरह महसूस करनी पड़ेगी।\nनंबर भी अदृश्य मिले तो शिकायत मत करना।\nमैंने भी एक बार अदृश्य गुल्लक बनाई थी, पैसे सच में गायब हुए।",
+      "punchline_hi": "मैंने भी एक बार अदृश्य गुल्लक बनाई थी, पैसे सच में गायब हुए।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at बैठक; show खाली कार्डबोर्ड बॉक्स clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "बैठक में खाली कार्डबोर्ड बॉक्स दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खाली कार्डबोर्ड बॉक्स visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खाली कार्डबोर्ड बॉक्स visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep खाली कार्डबोर्ड बॉक्स visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep खाली कार्डबोर्ड बॉक्स visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep खाली कार्डबोर्ड बॉक्स visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "विज्ञान का मॉडल",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "विज्ञान का मॉडल 😂 | घर की कॉमेडी",
+        "description": "विज्ञान का मॉडल पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "विज्ञान का मॉडल"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "विज्ञान का मॉडल",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0018",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0019",
+      "sequence_index": 19,
+      "concept_id": "FAM-019",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "अंग्रेजी का अनुवाद 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 23,
+      "duration_is_estimate": true,
+      "spoken_word_count": 51,
+      "aspect_ratio": "9:16",
+      "setting_hi": "पढ़ाई की मेज",
+      "props_hi": [
+        "शब्दों के कार्ड"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "अंग्रेजी का अनुवाद? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "होमवर्क को घर का काम क्यों बोल रहे हो?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "आप हमेशा कहते हैं हिंदी में समझो।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "तो बर्तन रखना भी होमवर्क हुआ?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "हाँ, लेकिन उसकी कॉपी मम्मी चेक करेंगी।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "आज दोनों विषयों का प्रैक्टिकल है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मुझे बर्तन वाले विषय में फिर से परीक्षा देनी पड़ेगी।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nहोमवर्क को घर का काम क्यों बोल रहे हो?\nआप हमेशा कहते हैं हिंदी में समझो।\nतो बर्तन रखना भी होमवर्क हुआ?\nहाँ, लेकिन उसकी कॉपी मम्मी चेक करेंगी।\nआज दोनों विषयों का प्रैक्टिकल है।\nमुझे बर्तन वाले विषय में फिर से परीक्षा देनी पड़ेगी।",
+      "punchline_hi": "मुझे बर्तन वाले विषय में फिर से परीक्षा देनी पड़ेगी।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at पढ़ाई की मेज; show शब्दों के कार्ड clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "पढ़ाई की मेज में शब्दों के कार्ड दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep शब्दों के कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep शब्दों के कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep शब्दों के कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep शब्दों के कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep शब्दों के कार्ड visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: पढ़ाई की मेज. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "अंग्रेजी का अनुवाद",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "अंग्रेजी का अनुवाद 😂 | घर की कॉमेडी",
+        "description": "अंग्रेजी का अनुवाद पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "अंग्रेजी का अनुवाद"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "अंग्रेजी का अनुवाद",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0019",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0020",
+      "sequence_index": 20,
+      "concept_id": "FAM-020",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "स्कूल और पढ़ाई",
+      "language": "hi-IN",
+      "title_hi": "टाइम टेबल का समय 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 46,
+      "aspect_ratio": "9:16",
+      "setting_hi": "दीवार के पास",
+      "props_hi": [
+        "रंगीन टाइम टेबल"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "पीहू",
+          "role": "fictional school-age child",
+          "gender": "girl",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "टाइम टेबल का समय? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "टाइम टेबल में पढ़ाई का समय कहाँ है?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "टाइम टेबल बनाने में लग गया।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "अब पढ़ोगे कब?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "कल नया टाइम टेबल बनाकर तय करेंगे।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "आज वाला खाली हिस्सा अभी भरते हैं।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मेरी मीटिंग की मीटिंग भी ऐसे ही होती है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nटाइम टेबल में पढ़ाई का समय कहाँ है?\nटाइम टेबल बनाने में लग गया।\nअब पढ़ोगे कब?\nकल नया टाइम टेबल बनाकर तय करेंगे।\nआज वाला खाली हिस्सा अभी भरते हैं।\nमेरी मीटिंग की मीटिंग भी ऐसे ही होती है।",
+      "punchline_hi": "मेरी मीटिंग की मीटिंग भी ऐसे ही होती है।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at दीवार के पास; show रंगीन टाइम टेबल clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "दीवार के पास में रंगीन टाइम टेबल दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep रंगीन टाइम टेबल visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep रंगीन टाइम टेबल visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep रंगीन टाइम टेबल visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep रंगीन टाइम टेबल visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पीहू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep रंगीन टाइम टेबल visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: दीवार के पास. Mother, father and one school-age girl, पीहू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "टाइम टेबल का समय",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "टाइम टेबल का समय 😂 | घर की कॉमेडी",
+        "description": "टाइम टेबल का समय पर पीहू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "टाइम टेबल का समय"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "टाइम टेबल का समय",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0020",
+        "channel_id": null,
+        "video_id": null
+      }
+    },
+    {
+      "script_id": "HFC-0021",
+      "sequence_index": 21,
+      "concept_id": "FAM-021",
+      "variant_number": 1,
+      "variant_type": "family_scene",
+      "relationship_to_other_variants": "Alternate comic treatment of the same premise; not an unrelated story concept.",
+      "category_hi": "मोबाइल और तकनीक",
+      "language": "hi-IN",
+      "title_hi": "वाई-फाई का उपवास 😂 | घर की कॉमेडी",
+      "target_duration_seconds": 22,
+      "duration_is_estimate": true,
+      "spoken_word_count": 49,
+      "aspect_ratio": "9:16",
+      "setting_hi": "बैठक",
+      "props_hi": [
+        "राउटर पर कागजी पत्ती"
+      ],
+      "characters": [
+        {
+          "speaker_id": "child",
+          "name_hi": "चिंटू",
+          "role": "fictional school-age child",
+          "gender": "boy",
+          "appearance": "yellow T-shirt, blue trousers; consistent fictional animated character",
+          "voice_key": "child_fictional_hi"
+        },
+        {
+          "speaker_id": "mother",
+          "name_hi": "माँ",
+          "role": "adult woman",
+          "appearance": "teal kurta; consistent fictional animated character",
+          "voice_key": "adult_woman_hi"
+        },
+        {
+          "speaker_id": "father",
+          "name_hi": "पापा",
+          "role": "adult man",
+          "appearance": "orange casual shirt; consistent fictional animated character",
+          "voice_key": "adult_man_hi"
+        }
+      ],
+      "hook_hi": "घर में ये क्या हो गया?",
+      "alternative_hooks_hi": [
+        "वाई-फाई का उपवास? ये क्या हुआ!",
+        "घरवालों ने जवाब सुन लिया!",
+        "आखिरी जवाब सुनकर हँसी आएगी!"
+      ],
+      "dialogue": [
+        {
+          "segment_id": "L01",
+          "speaker_id": "mother",
+          "text": "घर में ये क्या हो गया?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L02",
+          "speaker_id": "mother",
+          "text": "राउटर पर आराम करो क्यों लिखा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L03",
+          "speaker_id": "child",
+          "text": "आज पूरे घर का स्क्रीन ब्रेक है।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L04",
+          "speaker_id": "father",
+          "text": "तुम्हारा गेम कैसे चलेगा?",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L05",
+          "speaker_id": "child",
+          "text": "मेरा ब्रेक गेम खत्म होने के बाद शुरू होगा।",
+          "delivery": "curious, playful, natural Hindi; no shouting"
+        },
+        {
+          "segment_id": "L06",
+          "speaker_id": "mother",
+          "text": "नियम सबके लिए अभी से लागू है।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        },
+        {
+          "segment_id": "L07",
+          "speaker_id": "father",
+          "text": "मैंने तो रिमोट को भी चार्जर समझकर पकड़ लिया था।",
+          "delivery": "warm conversational Hindi, comic pause before the final phrase"
+        }
+      ],
+      "voiceover_text_hi": "घर में ये क्या हो गया?\nराउटर पर आराम करो क्यों लिखा?\nआज पूरे घर का स्क्रीन ब्रेक है।\nतुम्हारा गेम कैसे चलेगा?\nमेरा ब्रेक गेम खत्म होने के बाद शुरू होगा।\nनियम सबके लिए अभी से लागू है।\nमैंने तो रिमोट को भी चार्जर समझकर पकड़ लिया था।",
+      "punchline_hi": "मैंने तो रिमोट को भी चार्जर समझकर पकड़ लिया था।",
+      "scenes": [
+        {
+          "scene_id": "S01",
+          "dialogue_segment_ids": [
+            "L01"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Establish the family at बैठक; show राउटर पर कागजी पत्ती clearly. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "wide establish, then quick push-in",
+          "action_hi": "बैठक में राउटर पर कागजी पत्ती दिखाएँ।",
+          "on_screen_text_hi": "घर में ये क्या हो गया?",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S02",
+          "dialogue_segment_ids": [
+            "L02"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep राउटर पर कागजी पत्ती visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S03",
+          "dialogue_segment_ids": [
+            "L03"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep राउटर पर कागजी पत्ती visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S04",
+          "dialogue_segment_ids": [
+            "L04"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of father; the other two characters react naturally. Keep राउटर पर कागजी पत्ती visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "पापा संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S05",
+          "dialogue_segment_ids": [
+            "L05"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of child; the other two characters react naturally. Keep राउटर पर कागजी पत्ती visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "चिंटू संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S06",
+          "dialogue_segment_ids": [
+            "L06"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Medium close-up of mother; the other two characters react naturally. Keep राउटर पर कागजी पत्ती visible and consistent. No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "alternating medium close-up",
+          "action_hi": "माँ संवाद बोले; बाकी दोनों उसकी ओर देखें।",
+          "on_screen_text_hi": "",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.1
+        },
+        {
+          "scene_id": "S07",
+          "dialogue_segment_ids": [
+            "L07"
+          ],
+          "visual_prompt": "Original fictional 2D family comedy animation, vertical 9:16, warm bright Indian home setting: बैठक. Mother, father and one school-age boy, चिंटू. Comic staging: family_scene; portray this as a playful household role-playing scene. Final reaction: सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम। No logos, no baked-in subtitles, no extra speaking people. Match the character reference images across all shots.",
+          "camera": "reaction close-up",
+          "action_hi": "सभी एक साथ प्रॉप की ओर देखें; पापा के संकोच पर फ्रीज फ्रेम।",
+          "on_screen_text_hi": "वाई-फाई का उपवास",
+          "timing_mode": "align_to_dialogue_audio",
+          "tail_hold_seconds": 0.65
+        }
+      ],
+      "caption_settings": {
+        "language": "hi-IN",
+        "source": "dialogue[].text",
+        "timing": "generate_from_final_TTS_audio",
+        "max_lines": 2,
+        "style": "large high-contrast Devanagari, safe margins; do not cover faces"
+      },
+      "audio_plan": {
+        "music": "light original/licensed playful instrumental, low under speech",
+        "sfx": [
+          "soft pop at the opening",
+          "short comedic sting after the punchline"
+        ],
+        "dialogue_mix": "distinct speakers; intelligible speech; no canned laughter over the punchline"
+      },
+      "youtube_metadata": {
+        "title": "वाई-फाई का उपवास 😂 | घर की कॉमेडी",
+        "description": "वाई-फाई का उपवास पर चिंटू, माँ और पापा की मजेदार हिंदी पारिवारिक कॉमेडी। घर की कॉमेडी में आज घरवालों का जवाब सुनिए!\nयह काल्पनिक कॉमेडी स्केच है।\n#Shorts #HindiComedy #FamilyComedy #FunnyShorts",
+        "hashtags": [
+          "#Shorts",
+          "#HindiComedy",
+          "#FamilyComedy",
+          "#FunnyShorts"
+        ],
+        "tags": [
+          "हिंदी कॉमेडी",
+          "परिवार की कॉमेडी",
+          "Hindi funny shorts",
+          "family comedy",
+          "वाई-फाई का उपवास"
+        ],
+        "pinned_comment_suggestion_hi": "इस सीन में सबसे मजेदार जवाब किसका था—बच्चे का, माँ का या पापा का?",
+        "thumbnail_text_hi": "वाई-फाई का उपवास",
+        "made_for_kids": null,
+        "contains_synthetic_media": null,
+        "privacy_status": null,
+        "publish_at": null
+      },
+      "workflow": {
+        "state": "script_ready",
+        "video_rendered": false,
+        "uploaded": false,
+        "published": false,
+        "idempotency_key": "HFC-0021",
+        "channel_id": null,
+        "video_id": null
+      }
     }
   ]
 }
