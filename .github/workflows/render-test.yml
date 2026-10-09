@@ -8,7 +8,9 @@ on:
         type: string
   schedule:
     # Every 2 hours at :00 IST (GitHub Actions cron is UTC, 5 fields)
-    - cron: '30 18,20,22,0,2,4,6,8,10,12,14,16 * * *'
+    # Staggered recovery checks: every 30 minutes at :17/:47 UTC.
+    # select_job.py only selects due unuploaded jobs, so extra checks do not create duplicates.
+    - cron: '17,47 * * * *'
   push:
     branches: [main]
     paths:
