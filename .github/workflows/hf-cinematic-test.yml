@@ -1,6 +1,9 @@
 name: Free Hugging Face Cinematic Test
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/hf-cinematic-test.yml'
 permissions:
   contents: read
 jobs:
@@ -12,7 +15,7 @@ jobs:
       HF_SPACE: zerogpu-aoti/wan2-2-fp8da-aoti-faster
       HF_API_NAME: /generate_video
       HF_MAX_SHOTS: "1"
-      HF_IMAGE_URL: ${{ vars.HF_IMAGE_URL }}
+      HF_IMAGE_URL: https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3.1-flash-lite-image/images/b515dd04-fe2a-4edc-aa48-36ad6b4cc415/3525dcde-ea61-47f3-bc28-38aa758055e8/One_original_cinematic_high_quality_3D_animated_film_still_f.jpg?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjA1NTM2YzlhODhhMDVhZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MTc5OTQ5N30.lybesht1fnoP5SCB0yB6VeC8lUjOrZpH90CuKbiViyI
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
