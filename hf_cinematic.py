@@ -54,7 +54,10 @@ def main():
     output = Path(args.out)
     output.mkdir(parents=True, exist_ok=True)
     from shutil import copyfile
-    max_shots = int(os.getenv("HF_MAX_SHOTS", "1"))\n    if max_shots < 1 or max_shots > 24:\n        raise SystemExit("HF_MAX_SHOTS must be between 1 and 24")\n    for shot in plan["shots"][:max_shots]:
+    max_shots = int(os.getenv("HF_MAX_SHOTS", "1")) 
+    if max_shots < 1 or max_shots > 24: 
+        raise SystemExit("HF_MAX_SHOTS must be between 1 and 24") 
+    for shot in plan["shots"][:max_shots]:
         shot_id = shot["shot_id"]
         target = output / f"{shot_id}.mp4"
         if target.exists() and target.stat().st_size > 100_000:
@@ -76,6 +79,8 @@ def main():
         for item in candidates:
             if isinstance(item, dict):
                 item = item.get("video") or item.get("path") or item.get("name")
+                if isinstance(item, dict):
+                    item = item.get("path") or item.get("url")
             if isinstance(item, str) and item.lower().split("?")[0].endswith(".mp4"):
                 video_path = item
                 break
