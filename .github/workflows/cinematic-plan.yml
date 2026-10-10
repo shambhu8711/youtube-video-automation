@@ -1,0 +1,34 @@
+name: Cinematic Shorts Planning
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 0,6,12,18 * * *'
+permissions:
+  contents: read
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build upcoming Hindi jobs
+        run: python generate_hindi_jobs.py
+      - name: Validate and prepare due cinematic shot plans
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cinematic_plans
+          count=0
+          for job in jobs/*.json; do
+            [ -f "$job" ] || continue
+            key="$(basename "$job" .json)"
+            JOB_FILE="$job" SHOT_PLAN="cinematic_plans/$key.json" python prepare_cinematic.py
+            count=$((count+1))
+          done
+          echo "Prepared $count cinematic shot plans"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cinematic-shot-plans
+          path: cinematic_plans/
+          if-no-files-found: error
+          retention-days: 7
