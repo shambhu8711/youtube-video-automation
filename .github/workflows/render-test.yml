@@ -40,7 +40,8 @@ jobs:
       - name: Require cinematic AI video renderer before publishing
         shell: bash
         run: |
-          echo "::error::Publishing paused: current Pillow cartoon renderer cannot meet approved realistic 3D cinematic reference. AI video generation and visual/lip-sync QA integration required. No video will be uploaded."
+          echo "::notice::Cinematic shot planning is available in the separate planning workflow."
+          echo "::error::Publishing paused: no verified free cloud cinematic generator and lip-sync QA are connected. No low-quality fallback upload permitted."
           exit 1
       - name: Preflight YouTube credentials
         env:
