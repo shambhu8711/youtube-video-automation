@@ -10,8 +10,8 @@ jobs:
     env:
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
       HF_SPACE: zerogpu-aoti/wan2-2-fp8da-aoti-faster
-      HF_API_NAME: ${{ vars.HF_API_NAME }}
-      HF_INPUT_JSON: ${{ vars.HF_INPUT_JSON }}
+      HF_API_NAME: /generate_video
+      HF_MAX_SHOTS: "1"
       HF_IMAGE_URL: ${{ vars.HF_IMAGE_URL }}
     steps:
       - uses: actions/checkout@v4
@@ -25,18 +25,19 @@ jobs:
           test -n "$HF_TOKEN" || { echo "::error::Set HF_TOKEN secret"; exit 1; }
       - name: Inspect official Space API
         run: python hf_cinematic.py --inspect
-      - name: Do not render until exact endpoint inputs are configured
+      - name: Generate one cinematic clip when reference image configured
         shell: bash
         run: |
-          test -n "$HF_API_NAME" && test -n "$HF_INPUT_JSON" || {
-            echo "::notice::Inspect the API log; configure HF_API_NAME and HF_INPUT_JSON repository variables, then rerun."
-            exit 0
-          }
+          set -euo pipefail
+          if [ -z "$HF_IMAGE_URL" ]; then
+            echo "::error::Set repository Actions variable HF_IMAGE_URL to a publicly accessible original 9:16 character reference image. No video was generated."
+            exit 1
+          fi
           python generate_hindi_jobs.py
           python select_job.py
           if [ -f no_fresh_job ]; then
-            echo "::notice::No due unique job; no generation attempted."
-            exit 0
+            echo "::error::No due unique Hindi job found for cinematic test"
+            exit 1
           fi
           python prepare_cinematic.py
           python hf_cinematic.py
