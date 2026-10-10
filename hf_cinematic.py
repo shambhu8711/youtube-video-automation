@@ -35,8 +35,8 @@ def main():
     if args.inspect:
         client.view_api()
         return
-    api_name = os.getenv("HF_API_NAME", "").strip()
-    template = os.getenv("HF_INPUT_JSON", "").strip()
+    api_name = os.getenv("HF_API_NAME", "/generate_video").strip()
+    template = os.getenv("HF_INPUT_JSON", '["{{IMAGE}}","{{PROMPT}}",6,"low quality, blurry, deformed hands, subtitles, watermark",3.5,1,1,42,true]').strip()
     if not api_name or not template:
         raise SystemExit("Set HF_API_NAME and HF_INPUT_JSON after inspecting the actual Space API")
     try:
@@ -54,7 +54,7 @@ def main():
     output = Path(args.out)
     output.mkdir(parents=True, exist_ok=True)
     from shutil import copyfile
-    for shot in plan["shots"]:
+    max_shots = int(os.getenv("HF_MAX_SHOTS", "1"))\n    if max_shots < 1 or max_shots > 24:\n        raise SystemExit("HF_MAX_SHOTS must be between 1 and 24")\n    for shot in plan["shots"][:max_shots]:
         shot_id = shot["shot_id"]
         target = output / f"{shot_id}.mp4"
         if target.exists() and target.stat().st_size > 100_000:
@@ -89,7 +89,7 @@ def main():
             target.unlink(missing_ok=True)
             raise RuntimeError(f"Invalid video size for {shot_id}")
         print("CINEMATIC_SHOT_SAVED", shot_id, target, flush=True)
-    print("ALL_CINEMATIC_CLIPS_GENERATED; NOT PUBLISHED; QA STILL REQUIRED")
+    print("REQUESTED_CINEMATIC_CLIPS_GENERATED; NOT PUBLISHED; QA STILL REQUIRED")
 
 if __name__ == "__main__":
     main()
