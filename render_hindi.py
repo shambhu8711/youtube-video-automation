@@ -13,6 +13,9 @@ if not os.path.isfile(font_path):
     raise SystemExit("Noto Sans Devanagari font required")
 font=ImageFont.truetype(font_path,65)
 small=ImageFont.truetype(font_path,43)
+headline_font=ImageFont.truetype(font_path,55)
+headline=job.get("title","").split("|")[0].strip()
+if not headline: raise SystemExit("Missing story-specific headline")
 os.makedirs("frames",exist_ok=True)
 
 def wrapped(d,text,max_width):
@@ -105,7 +108,9 @@ for frame in range(math.ceil(duration*FPS)):
     person(d,"mother",535,770,speaker=="mother",t,energy if speaker=="mother" else 0)
     person(d,"father",835,770,speaker=="father",t,energy if speaker=="father" else 0)
     d.rounded_rectangle((55,95,1025,242),radius=40,fill=(255,220,115))
-    d.text((100,133),"हिंदी फैमिली कॉमेडी",font=small,fill=(35,35,58))
+    headline_lines=wrapped(d,headline,850)
+    for hi,line in enumerate(headline_lines[:2]):
+        d.text((100,112+hi*65),line,font=headline_font,fill=(35,35,58))
     d.rounded_rectangle((65,1240,1015,1705),radius=52,fill=(255,252,241))
     d.text((108,1275),names.get(speaker,"परिवार")+":",font=small,fill=(82,55,125))
     for li,line in enumerate(wrapped(d,scene.get("text",""),840)[:4]):
