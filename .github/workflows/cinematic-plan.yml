@@ -22,10 +22,15 @@ jobs:
           for job in jobs/*.json; do
             [ -f "$job" ] || continue
             key="$(basename "$job" .json)"
-            JOB_FILE="$job" SHOT_PLAN="cinematic_plans/$key.json" python prepare_cinematic.py
+            if ! JOB_FILE="$job" SHOT_PLAN="cinematic_plans/$key.json" python prepare_cinematic.py; then
+              echo "::warning::Skipping legacy or invalid job $key (not a cinematic Hindi job)"
+              rm -f "cinematic_plans/$key.json"
+              continue
+            fi
             count=$((count+1))
           done
           echo "Prepared $count cinematic shot plans"
+          test "$count" -gt 0
       - uses: actions/upload-artifact@v4
         with:
           name: cinematic-shot-plans
