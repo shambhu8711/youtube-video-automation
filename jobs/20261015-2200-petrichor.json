@@ -1,0 +1,27 @@
+{
+  "job_key": "20261015-2200-petrichor",
+  "title": "What Causes the Smell After Rain #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "The earthy smell often noticed when rain hits dry ground is called petrichor. Compounds released by plants and soil microorganisms contribute to it, including geosmin produced by certain microbes. Raindrops can help launch tiny scented particles into the air. The familiar scent is therefore a combination of biology, chemistry, and the physics of falling rain.",
+  "scenes": [
+    {
+      "text": "Dry ground stores compounds",
+      "visual": "rain soil closeup"
+    },
+    {
+      "text": "Raindrops release aerosols",
+      "visual": "rain soil closeup"
+    },
+    {
+      "text": "Geosmin adds earthy scent",
+      "visual": "rain soil closeup"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "petrichor"
+  ]
+}

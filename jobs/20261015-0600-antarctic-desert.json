@@ -1,0 +1,27 @@
+{
+  "job_key": "20261015-0600-antarctic-desert",
+  "title": "Why Antarctica Is Technically a Desert #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Deserts are defined mainly by low precipitation, not by heat. Much of Antarctica receives very little snowfall or rainfall each year, even though enormous ice sheets cover the continent. Cold air holds relatively little moisture, and conditions in the interior are exceptionally dry. A place can therefore be both the coldest continent and a desert.",
+  "scenes": [
+    {
+      "text": "Deserts have low precipitation",
+      "visual": "antarctica snow desert"
+    },
+    {
+      "text": "Antarctic interior is very dry",
+      "visual": "antarctica snow desert"
+    },
+    {
+      "text": "Cold does not prevent desert status",
+      "visual": "antarctica snow desert"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "antarctic desert"
+  ]
+}

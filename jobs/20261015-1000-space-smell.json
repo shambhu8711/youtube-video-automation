@@ -1,0 +1,27 @@
+{
+  "job_key": "20261015-1000-space-smell",
+  "title": "Why Astronauts Describe a Strange Space Smell #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Astronauts cannot smell the vacuum of space directly. After spacewalks, some have described unusual metallic or smoky odors associated with equipment brought back into the airlock. Scientists have proposed several possible chemical explanations, but there is no single confirmed substance responsible for every report. The distinction between space itself and returning gear matters.",
+  "scenes": [
+    {
+      "text": "Vacuum cannot be sniffed",
+      "visual": "astronaut airlock"
+    },
+    {
+      "text": "Odor noticed after re-entry",
+      "visual": "astronaut airlock"
+    },
+    {
+      "text": "Chemistry remains uncertain",
+      "visual": "astronaut airlock"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "space smell"
+  ]
+}
