@@ -1,0 +1,27 @@
+{
+  "job_key": "20261021-2000-whale-song",
+  "title": "Why Whale Songs Change Over Time #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Some whale species produce complex patterns of vocalizations that can shift over months or years. In humpback whales, researchers have documented song changes spreading through populations, suggesting social learning. The precise functions of these songs are still being studied, but their changing patterns show that animal communication can have a cultural dimension.",
+  "scenes": [
+    {
+      "text": "Songs have recurring patterns",
+      "visual": "humpback whale ocean"
+    },
+    {
+      "text": "Patterns change over time",
+      "visual": "humpback whale ocean"
+    },
+    {
+      "text": "Social learning may spread them",
+      "visual": "humpback whale ocean"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "whale song"
+  ]
+}

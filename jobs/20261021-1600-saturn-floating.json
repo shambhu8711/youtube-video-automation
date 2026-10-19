@@ -1,0 +1,27 @@
+{
+  "job_key": "20261021-1600-saturn-floating",
+  "title": "Would Saturn Float in Water? #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Saturn's average density is lower than that of liquid water, which inspires the famous claim that it could float. In reality, there is no ocean large enough to hold Saturn, and a giant gas planet would not behave like a solid ball dropped into a bathtub. The comparison is a memorable way to explain average density, not a practical experiment.",
+  "scenes": [
+    {
+      "text": "Average density below water",
+      "visual": "saturn rings space"
+    },
+    {
+      "text": "Saturn is a gas giant",
+      "visual": "saturn rings space"
+    },
+    {
+      "text": "Floating is a thought experiment",
+      "visual": "saturn rings space"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "saturn floating"
+  ]
+}
