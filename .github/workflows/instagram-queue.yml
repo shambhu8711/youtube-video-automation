@@ -82,17 +82,27 @@ jobs:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-      - name: Generate original vertical test video (no Instagram dependency)
+      - name: Download and validate actual Instagram Reel for test
         if: steps.mode.outputs.value == 'test-upload'
         run: |
           mkdir -p reel_queue
-          ffmpeg -hide_banner -loglevel error -f lavfi -i "color=c=navy:s=720x1280:r=24:d=8" -f lavfi -i "sine=frequency=440:duration=8" -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest -y reel_queue/youtube_connection_test.mp4
           python - <<'PY'
-          import json, os
+          import json, subprocess
           from pathlib import Path
-          test_id = "youtube_connection_test_" + os.environ["GITHUB_RUN_ID"] + "_" + os.environ["GITHUB_RUN_ATTEMPT"]
-          Path("reel_queue/youtube_connection_test.mp4").rename(Path("reel_queue") / (test_id + ".mp4"))
-          Path("reel_queue/manifest.json").write_text(json.dumps({"reels": [{"id": test_id, "url": "https://www.youtube.com/", "title": "YouTube Upload Connection Test #Shorts"}]}))
+          reel_id = "De4iEVhyYrV"
+          url = "https://www.instagram.com/reel/" + reel_id + "/"
+          if Path("state/instagram_uploads", reel_id + ".json").exists():
+              raise SystemExit("This Reel already has an upload record; refusing a duplicate test.")
+          subprocess.run(["yt-dlp", "--no-playlist", "--retries", "0", "--extractor-retries", "0", "--merge-output-format", "mp4", "--recode-video", "mp4", "-o", "reel_queue/" + reel_id + ".%(ext)s", url], check=True, timeout=240)
+          video = Path("reel_queue", reel_id + ".mp4")
+          if not video.is_file() or video.stat().st_size < 1024:
+              raise SystemExit("Instagram download did not produce a valid video.")
+          probe = json.loads(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type,width,height", "-of", "json", str(video)]))
+          stream = next((s for s in probe.get("streams", []) if s.get("codec_type") == "video"), None)
+          duration = float(probe.get("format", {}).get("duration", 0))
+          if not stream or not 0 < duration <= 180 or stream.get("height", 0) < stream.get("width", 0):
+              raise SystemExit("Downloaded Reel does not meet Shorts duration and aspect requirements.")
+          Path("reel_queue/manifest.json").write_text(json.dumps({"reels": [{"id": reel_id, "url": url, "title": "Tiny Giggle AI - Baby Comedy #Shorts"}]}))
           PY
       - name: Collect and validate daily videos
         env:
