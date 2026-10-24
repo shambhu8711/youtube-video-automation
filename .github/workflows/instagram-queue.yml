@@ -61,7 +61,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          id=$(gh run list --workflow instagram-reels.yml --status success --limit 40 --json databaseId,event --jq '[.[] | select(.event=="schedule" or .event=="workflow_dispatch")][0].databaseId')
+          id=$(gh run list --workflow instagram-queue.yml --status success --limit 40 --json databaseId,event --jq '[.[] | select(.event=="schedule" or .event=="workflow_dispatch")][0].databaseId')
           if [ -z "$id" ] || [ "$id" = "null" ]; then echo "No daily collection run"; exit 1; fi
           gh run download "$id" --name instagram-daily-queue --dir reel_queue
       - name: Upload one private video
