@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install yt-dlp google-api-python-client==2.179.0 google-auth==2.40.3
+        run: pip install yt-dlp instaloader google-api-python-client==2.179.0 google-auth==2.40.3
       - name: Compile and self-test
         run: |
           python -m py_compile instagram_daily_queue.py
@@ -68,11 +68,13 @@ jobs:
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
       - name: Collect and validate daily videos
+        env:
+          INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
         if: steps.mode.outputs.value == 'collect' || steps.mode.outputs.value == 'bootstrap'
         run: |
           for attempt in 1 2 3; do
             if python instagram_daily_queue.py collect; then exit 0; fi
-            echo "::warning::Instagram collection failed (attempt $attempt)"
+            echo "::warning::Instagram collection failed (attempt $attempt). Check INSTAGRAM_DISCOVERY_FAILED or SKIP_REEL lines above."
             sleep 30
           done
           exit 1
