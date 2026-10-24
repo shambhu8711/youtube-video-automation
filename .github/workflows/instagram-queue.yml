@@ -132,7 +132,7 @@ jobs:
         run: |
           set -euo pipefail
           found=0
-          for id in $(gh run list --workflow instagram-queue.yml --status success --limit 60 --json databaseId --jq '.[].databaseId'); do
+          for id in $(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" --jq '.artifacts | sort_by(.created_at) | reverse | .[] | select(.name == "instagram-daily-queue" and .expired == false) | .workflow_run.id'); do
             if gh run download "$id" --name instagram-daily-queue --dir reel_queue 2>/dev/null; then
               found=1
               break
