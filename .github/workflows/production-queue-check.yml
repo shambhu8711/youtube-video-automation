@@ -1,0 +1,36 @@
+name: Production queue readiness check
+on:
+  push:
+    paths: ['.github/workflows/production-queue-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install yt-dlp instaloader
+      - name: Compile and check duplicate filtering
+        run: |
+          python -m py_compile instagram_daily_queue.py
+          python instagram_daily_queue.py self-test
+      - name: Test production collection without publishing
+        env:
+          INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
+        run: timeout 120s python -u instagram_daily_queue.py collect
+      - name: Preserve validated queue for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-readiness-queue
+          path: reel_queue/
+          retention-days: 3
+          if-no-files-found: error
