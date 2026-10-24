@@ -1,0 +1,88 @@
+name: Instagram Daily Queue and Hourly YouTube Intake
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [collect, publish]
+        default: collect
+  schedule:
+    # 00:05 IST = 18:35 UTC previous day
+    - cron: '35 18 * * *'
+    # Hourly IST :15, excluding daily collection slot
+    - cron: '45 * * * *'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: instagram-queue-single-writer
+  cancel-in-progress: false
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install yt-dlp google-api-python-client==2.179.0 google-auth==2.40.3
+      - name: Self-test
+        run: python instagram_daily_queue.py self-test
+      - name: Determine operation
+        id: mode
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+          INPUT_MODE: ${{ inputs.mode }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT_SCHEDULE" = "35 18 * * *" ]; then
+            echo "value=collect" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=publish" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Collect and validate daily videos
+        if: steps.mode.outputs.value == 'collect'
+        run: python instagram_daily_queue.py collect
+      - name: Store today's videos as artifact
+        if: steps.mode.outputs.value == 'collect'
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-daily-queue
+          path: reel_queue/
+          retention-days: 3
+          if-no-files-found: error
+      - name: Restore most recent collected queue
+        if: steps.mode.outputs.value == 'publish'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          id=$(gh run list --workflow instagram-reels.yml --status success --limit 40 --json databaseId,event --jq '[.[] | select(.event=="schedule" or .event=="workflow_dispatch")][0].databaseId')
+          if [ -z "$id" ] || [ "$id" = "null" ]; then echo "No daily collection run"; exit 1; fi
+          gh run download "$id" --name instagram-daily-queue --dir reel_queue
+      - name: Upload one private video
+        if: steps.mode.outputs.value == 'publish'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python instagram_daily_queue.py publish
+      - name: Persist upload ID even after later failures
+        if: always()
+        run: |
+          if [ -f instagram_upload_record.json ]; then
+            mkdir -p state/instagram_uploads
+            python -c 'import json,shutil; x=json.load(open("instagram_upload_record.json"));shutil.copyfile("instagram_upload_record.json","state/instagram_uploads/"+x["instagram_reel_id"]+".json")'
+            git config user.name "youtube-automation[bot]"
+            git config user.email "youtube-automation[bot]@users.noreply.github.com"
+            git add state/instagram_uploads/
+            if ! git diff --cached --quiet; then
+              git commit -m "Track Instagram intake [skip ci]"
+              git pull --rebase origin main
+              git push origin HEAD:main
+            fi
+          fi
