@@ -26,11 +26,11 @@ jobs:
       - name: Test production collection without publishing
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
-        run: timeout 120s python -u instagram_daily_queue.py collect
+        run: timeout 240s python -u instagram_daily_queue.py collect
       - name: Preserve validated queue for inspection
         uses: actions/upload-artifact@v4
         with:
-          name: production-readiness-queue
+          name: instagram-daily-queue
           path: reel_queue/
           retention-days: 3
           if-no-files-found: error
