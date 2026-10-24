@@ -42,6 +42,36 @@ jobs:
           else:
               print("Instagram session secret absent; using existing source fallback.")
           PY
+      - name: Verify authenticated discovery without fallback
+        run: |
+          timeout 90s python -u - <<'PY'
+          import os
+          from pathlib import Path
+          import instaloader
+          session = Path(os.environ["INSTAGRAM_SESSION_FILE"])
+          if not session.is_file():
+              raise SystemExit("AUTH_SESSION_MISSING: GitHub did not receive INSTAGRAM_SESSION_B64")
+          loader = instaloader.Instaloader(quiet=True, max_connection_attempts=1, request_timeout=20)
+          loader.load_session_from_file(os.environ["INSTAGRAM_SESSION_USERNAME"], str(session))
+          try:
+              username = loader.test_login()
+              if username != os.environ["INSTAGRAM_SESSION_USERNAME"]:
+                  raise RuntimeError("Session account was not verified")
+              print("SESSION_ACCOUNT_VERIFIED", username)
+              profile = instaloader.Profile.from_username(loader.context, "tinygiggleai07")
+              count = 0
+              for post in profile.get_posts():
+                  if post.is_video:
+                      print("AUTHENTICATED_REEL_DISCOVERED", post.shortcode)
+                      count += 1
+                  if count >= 3:
+                      break
+              if not count:
+                  raise RuntimeError("No video posts returned")
+              print("AUTHENTICATED_DISCOVERY_PASSED", count)
+          except Exception as exc:
+              raise SystemExit("AUTHENTICATED_DISCOVERY_FAILED: " + type(exc).__name__ + ". Session may be rejected or profile access restricted.")
+          PY
       - name: Test production collection without publishing
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
