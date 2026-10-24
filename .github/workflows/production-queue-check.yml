@@ -9,6 +9,9 @@ jobs:
   readiness:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      INSTAGRAM_SESSION_USERNAME: __sam__7399
+      INSTAGRAM_SESSION_FILE: ${{ runner.temp }}/instagram-session
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,6 +26,22 @@ jobs:
         run: |
           python -m py_compile instagram_daily_queue.py
           python instagram_daily_queue.py self-test
+      - name: Restore private Instagram session
+        env:
+          INSTAGRAM_SESSION_B64: ${{ secrets.INSTAGRAM_SESSION_B64 }}
+        run: |
+          python - <<'PY'
+          import base64, os
+          value = os.environ.get("INSTAGRAM_SESSION_B64", "")
+          if value:
+              data = base64.b64decode(value, validate=True)
+              path = os.environ["INSTAGRAM_SESSION_FILE"]
+              with open(os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600), "wb") as output:
+                  output.write(data)
+              print("Private Instagram session restored; contents are not logged.")
+          else:
+              print("Instagram session secret absent; using existing source fallback.")
+          PY
       - name: Test production collection without publishing
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
@@ -34,3 +53,6 @@ jobs:
           path: reel_queue/
           retention-days: 3
           if-no-files-found: error
+      - name: Remove temporary Instagram session
+        if: always()
+        run: rm -f "$INSTAGRAM_SESSION_FILE"
