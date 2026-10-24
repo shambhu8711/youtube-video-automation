@@ -8,7 +8,7 @@ on:
     inputs:
       mode:
         type: choice
-        options: [collect, publish]
+        options: [collect, publish, test-upload]
         default: collect
   schedule:
     # 00:05 IST = 18:35 UTC previous day
@@ -44,7 +44,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode }}
         run: |
           if [ "$EVENT_NAME" = "push" ]; then
-            echo "value=bootstrap" >> "$GITHUB_OUTPUT"
+            echo "value=test-upload" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_SCHEDULE" = "35 18 * * *" ]; then
@@ -67,10 +67,16 @@ jobs:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      - name: Generate original vertical test video (no Instagram dependency)
+        if: steps.mode.outputs.value == 'test-upload'
+        run: |
+          mkdir -p reel_queue
+          ffmpeg -hide_banner -loglevel error -f lavfi -i "color=c=navy:s=720x1280:r=24:d=8" -f lavfi -i "sine=frequency=440:duration=8" -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest -y reel_queue/youtube_connection_test.mp4
+          python -c 'import json; json.dump({"reels":[{"id":"youtube_connection_test","url":"https://www.youtube.com/","title":"YouTube Upload Connection Test #Shorts"}]},open("reel_queue/manifest.json","w"))'
       - name: Collect and validate daily videos
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
-        if: steps.mode.outputs.value == 'collect' || steps.mode.outputs.value == 'bootstrap'
+        if: steps.mode.outputs.value == 'collect'
         run: |
           for attempt in 1 2 3; do
             if python instagram_daily_queue.py collect; then exit 0; fi
@@ -103,8 +109,11 @@ jobs:
             echo "::warning::No daily collection artifact; attempting on-demand collection"
             python instagram_daily_queue.py collect
           fi
+      - name: Clear old upload record for this run
+        if: steps.mode.outputs.value == 'test-upload'
+        run: rm -f instagram_upload_record.json
       - name: Upload one public video
-        if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'bootstrap'
+        if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'test-upload'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
