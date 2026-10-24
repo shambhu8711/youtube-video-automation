@@ -27,10 +27,20 @@ def collect():
   entries=discover([{"id":u.split("/reel/")[1].split("/")[0].split("?")[0],"url":u} for u in urls],history)
  else:
   try:
-   data=json.loads(run(["yt-dlp","--flat-playlist","--dump-single-json","--playlist-end","150",PROFILE]))
+   # Instaloader enumerates profile posts; yt-dlp profile URLs are not reliable playlists.
+   import instaloader
+   loader=instaloader.Instaloader(download_pictures=False,download_videos=False,download_video_thumbnails=False,save_metadata=False,quiet=True)
+   if os.getenv("INSTAGRAM_SESSION_USERNAME") and os.getenv("INSTAGRAM_SESSION_FILE"):
+    loader.load_session_from_file(os.environ["INSTAGRAM_SESSION_USERNAME"],os.environ["INSTAGRAM_SESSION_FILE"])
+   profile=instaloader.Profile.from_username(loader.context,"tinygiggleai07")
+   posts=[]
+   for post in profile.get_posts():
+    if post.is_video:
+     posts.append({"id":post.shortcode,"url":"https://www.instagram.com/reel/"+post.shortcode+"/","title":(post.caption or "Funny Short")[:90]})
+    if len(posts)>=150: break
+   entries=discover(posts,history)
   except Exception as exc:
-   raise RuntimeError("Instagram profile enumeration unavailable; set INSTAGRAM_REEL_URLS to authorized Reel URLs. "+str(exc)) from exc
-  entries=discover(data.get("entries") or [],history)
+   raise RuntimeError("INSTAGRAM_DISCOVERY_FAILED: Public profile access blocked or unavailable. Configure an authorized Instagram session or INSTAGRAM_REEL_URLS. "+str(exc)) from exc
  valid=[]
  for item in entries:
   try:
