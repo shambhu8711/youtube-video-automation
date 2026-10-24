@@ -44,7 +44,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode }}
         run: |
           if [ "$EVENT_NAME" = "push" ]; then
-            echo "value=collect" >> "$GITHUB_OUTPUT"
+            echo "value=bootstrap" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_SCHEDULE" = "35 18 * * *" ]; then
@@ -53,7 +53,7 @@ jobs:
             echo "value=publish" >> "$GITHUB_OUTPUT"
           fi
       - name: Collect and validate daily videos
-        if: steps.mode.outputs.value == 'collect'
+        if: steps.mode.outputs.value == 'collect' || steps.mode.outputs.value == 'bootstrap'
         run: |
           for attempt in 1 2 3; do
             if python instagram_daily_queue.py collect; then exit 0; fi
@@ -62,7 +62,7 @@ jobs:
           done
           exit 1
       - name: Store today's videos as artifact
-        if: steps.mode.outputs.value == 'collect'
+        if: steps.mode.outputs.value == 'collect' || steps.mode.outputs.value == 'bootstrap'
         uses: actions/upload-artifact@v4
         with:
           name: instagram-daily-queue
@@ -87,7 +87,7 @@ jobs:
             python instagram_daily_queue.py collect
           fi
       - name: Upload one public video
-        if: steps.mode.outputs.value == 'publish'
+        if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'bootstrap'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
