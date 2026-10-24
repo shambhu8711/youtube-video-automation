@@ -1,0 +1,14 @@
+name: Publish next Instagram Reel now
+on:
+  push:
+    paths: ['.github/workflows/instagram-publish-now.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    uses: ./.github/workflows/instagram-queue.yml
+    with:
+      mode: publish
+    secrets: inherit
