@@ -40,7 +40,14 @@ def collect():
     if len(posts)>=150: break
    entries=discover(posts,history)
   except Exception as exc:
-   raise RuntimeError("INSTAGRAM_DISCOVERY_FAILED: Public profile access blocked or unavailable. Configure an authorized Instagram session or INSTAGRAM_REEL_URLS. "+str(exc)) from exc
+   source=Path("sources/instagram-reels.json")
+   if not source.is_file():
+    raise RuntimeError("INSTAGRAM_DISCOVERY_FAILED: No usable profile feed or saved Reel source. "+str(exc)) from exc
+   saved=json.loads(source.read_text())
+   if saved.get("profile")!="tinygiggleai07": raise RuntimeError("Unexpected fallback source profile")
+   entries=discover(saved.get("reels",[]),history)
+   print("DISCOVERY_FALLBACK: Using finite browser-observed Reel list; automatic profile discovery remains unavailable.",file=sys.stderr)
+   if not entries: raise RuntimeError("SOURCE_EXHAUSTED: Refresh saved Reel source or restore authenticated profile discovery") from exc
  valid=[]
  for item in entries:
   try:
