@@ -8,12 +8,12 @@ on:
     inputs:
       mode:
         type: choice
-        options: [collect, publish, test-upload]
+        options: [collect, publish, test-upload, self-test]
         default: collect
   schedule:
     # 00:05 IST = 18:35 UTC previous day
     - cron: '35 18 * * *'
-    # Hourly IST :15, excluding daily collection slot
+    # Hourly IST :15
     - cron: '45 * * * *'
 permissions:
   contents: write
@@ -25,6 +25,8 @@ jobs:
   queue:
     runs-on: ubuntu-latest
     timeout-minutes: 55
+    env:
+      INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -50,7 +52,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode }}
         run: |
           if [ "$EVENT_NAME" = "push" ]; then
-            echo "value=test-upload" >> "$GITHUB_OUTPUT"
+            echo "value=self-test" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_SCHEDULE" = "35 18 * * *" ]; then
