@@ -4,5 +4,8 @@
   "source_url": "https://www.instagram.com/reel/De4iEVhyYrV/",
   "upload_accepted": true,
   "privacy": "public",
-  "publication_verified": false
+  "publication_verified": true,
+  "youtube_privacy": "public",
+  "processing_status": "succeeded",
+  "verified_at_utc": "2026-10-24T18:41:15.292837+00:00"
 }
