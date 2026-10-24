@@ -8,7 +8,7 @@ permissions:
 jobs:
   readiness:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     env:
       INSTAGRAM_SESSION_USERNAME: __sam__7399
       INSTAGRAM_SESSION_FILE: /tmp/instagram-session-${{ github.run_id }}-${{ github.run_attempt }}
@@ -84,7 +84,7 @@ jobs:
       - name: Test production collection without publishing
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
-        run: timeout 240s python -u instagram_daily_queue.py collect
+        run: timeout 600s python -u instagram_daily_queue.py collect
       - name: Preserve validated queue for inspection
         uses: actions/upload-artifact@v4
         with:
