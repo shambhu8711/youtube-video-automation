@@ -10,6 +10,11 @@ on:
         type: choice
         options: [collect, publish, test-upload, self-test]
         default: collect
+  workflow_call:
+    inputs:
+      mode:
+        type: string
+        default: publish
   schedule:
     # 00:05 IST = 18:35 UTC previous day
     - cron: '35 18 * * *'
@@ -69,7 +74,9 @@ jobs:
           EVENT_SCHEDULE: ${{ github.event.schedule }}
           INPUT_MODE: ${{ inputs.mode }}
         run: |
-          if [ "$EVENT_NAME" = "push" ]; then
+          if [ -n "$INPUT_MODE" ]; then
+            echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT_NAME" = "push" ]; then
             echo "value=self-test" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
@@ -144,6 +151,7 @@ jobs:
           retention-days: 3
           if-no-files-found: error
       - name: Restore most recent collected queue
+        id: restore
         if: steps.mode.outputs.value == 'publish'
         env:
           GH_TOKEN: ${{ github.token }}
@@ -156,10 +164,33 @@ jobs:
               break
             fi
           done
-          if [ "$found" -ne 1 ]; then
-            echo "::warning::No daily collection artifact; attempting on-demand collection"
-            python instagram_daily_queue.py collect
+          if [ "$found" -eq 1 ]; then
+            if ! python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          root = Path("reel_queue")
+          data = json.loads((root / "manifest.json").read_text())
+          done = {p.stem for p in Path("state/instagram_uploads").glob("*.json")}
+          usable = any(x["id"] not in done and (root / (x["id"] + ".mp4")).is_file() for x in data.get("reels", []))
+          sys.exit(0 if usable else 1)
+          PY
+            then
+              found=0
+            fi
           fi
+          if [ "$found" -ne 1 ]; then
+            echo "::notice::Queue missing or exhausted; collecting new Reels automatically"
+            python instagram_daily_queue.py collect
+            echo "refreshed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Store automatically refilled queue
+        if: steps.restore.outputs.refreshed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-daily-queue
+          path: reel_queue/
+          retention-days: 3
+          if-no-files-found: error
       - name: Clear old upload record for this run
         if: steps.mode.outputs.value == 'test-upload'
         run: rm -f instagram_upload_record.json
