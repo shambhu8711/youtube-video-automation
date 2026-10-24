@@ -29,16 +29,18 @@ def collect():
   try:
    # Instaloader enumerates profile posts; yt-dlp profile URLs are not reliable playlists.
    import instaloader
-   loader=instaloader.Instaloader(download_pictures=False,download_videos=False,download_video_thumbnails=False,save_metadata=False,quiet=True)
+   loader=instaloader.Instaloader(download_pictures=False,download_videos=False,download_video_thumbnails=False,save_metadata=False,quiet=True,max_connection_attempts=1,request_timeout=20)
    if os.getenv("INSTAGRAM_SESSION_USERNAME") and os.getenv("INSTAGRAM_SESSION_FILE"):
     loader.load_session_from_file(os.environ["INSTAGRAM_SESSION_USERNAME"],os.environ["INSTAGRAM_SESSION_FILE"])
-   profile=instaloader.Profile.from_username(loader.context,"tinygiggleai07")
+   profile=instaloader.Post.from_shortcode(loader.context,"De4iEVhyYrV").owner_profile
+   if profile.username!="tinygiggleai07": raise RuntimeError("Reel owner does not match configured source")
    posts=[]
-   for post in profile.get_posts():
+   for post in profile.get_reels():
     if post.is_video:
      posts.append({"id":post.shortcode,"url":"https://www.instagram.com/reel/"+post.shortcode+"/","title":(post.caption or "Funny Short")[:90]})
-    if len(posts)>=150: break
+    if len(posts)>=24: break
    entries=discover(posts,history)
+   print("LIVE_DISCOVERY_READY",len(entries))
   except Exception as exc:
    source=Path("sources/instagram-reels.json")
    if not source.is_file():
