@@ -28,8 +28,10 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install yt-dlp google-api-python-client==2.179.0 google-auth==2.40.3
-      - name: Self-test
-        run: python instagram_daily_queue.py self-test
+      - name: Compile and self-test
+        run: |
+          python -m py_compile instagram_daily_queue.py
+          python instagram_daily_queue.py self-test
       - name: Determine operation
         id: mode
         env:
@@ -69,7 +71,7 @@ jobs:
             fi
           done
           if [ "$found" -ne 1 ]; then echo "No usable daily collection artifact"; exit 1; fi
-      - name: Upload one private video
+      - name: Upload one public video
         if: steps.mode.outputs.value == 'publish'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
