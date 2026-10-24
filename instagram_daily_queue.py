@@ -54,15 +54,29 @@ def publish():
  creds=Credentials(token=None,refresh_token=os.environ["YOUTUBE_REFRESH_TOKEN"],token_uri="https://oauth2.googleapis.com/token",client_id=os.environ["YOUTUBE_CLIENT_ID"],client_secret=os.environ["YOUTUBE_CLIENT_SECRET"],scopes=["https://www.googleapis.com/auth/youtube.upload"])
  creds.refresh(Request())
  youtube=build("youtube","v3",credentials=creds,cache_discovery=False)
- body={"snippet":{"title":candidate["title"],"description":"Source: "+candidate["url"]+"\n#Shorts","categoryId":"23"},"status":{"privacyStatus":"private","selfDeclaredMadeForKids":False}}
+ body={"snippet":{"title":candidate["title"],"description":"Source: "+candidate["url"]+"\n#Shorts","categoryId":"23"},"status":{"privacyStatus":"public","selfDeclaredMadeForKids":False}}
  response=youtube.videos().insert(part="snippet,status",body=body,media_body=MediaFileUpload(str(ROOT/(candidate["id"]+".mp4")),mimetype="video/mp4",resumable=True)).execute()
- record={"instagram_reel_id":candidate["id"],"youtube_video_id":response["id"],"source_url":candidate["url"],"upload_accepted":True,"privacy":"private","publication_verified":False}
+ record={"instagram_reel_id":candidate["id"],"youtube_video_id":response["id"],"source_url":candidate["url"],"upload_accepted":True,"privacy":"public","publication_verified":False}
  Path("instagram_upload_record.json").write_text(json.dumps(record,indent=2))
- print("PRIVATE_UPLOAD_ACCEPTED",response["id"])
+ 
+ # Verify YouTube reports the requested public visibility. Upload acceptance alone is not publication.
+ try:
+  details=youtube.videos().list(part="status,processingDetails",id=response["id"]).execute().get("items",[])
+  if details:
+   status=details[0].get("status",{})
+   processing=details[0].get("processingDetails",{}).get("processingStatus","unknown")
+   record["youtube_privacy"]=status.get("privacyStatus","unknown")
+   record["processing_status"]=processing
+   record["publication_verified"]=status.get("privacyStatus")=="public" and processing=="succeeded"
+  Path("instagram_upload_record.json").write_text(json.dumps(record,indent=2))
+ except Exception as exc:
+  print("PUBLICATION_VERIFICATION_PENDING",str(exc),file=sys.stderr)
+ print("PUBLIC_UPLOAD_ACCEPTED",response["id"],"VERIFIED",record["publication_verified"])
 def test():
  items=[{"id":"a","url":"https://www.instagram.com/reel/a/"},{"id":"b","url":"https://www.instagram.com/reel/b/"}]
  assert [x["id"] for x in discover(items,{"a"})]==["b"]
  assert discover(items,{"a","b"})==[]
+ assert len(discover(items,set(),limit=1))==1
  print("QUEUE_SELF_TEST_PASSED")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("mode",choices=["collect","publish","self-test"]);args=p.parse_args()
