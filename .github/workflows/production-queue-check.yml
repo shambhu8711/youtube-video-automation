@@ -59,7 +59,9 @@ jobs:
                   raise RuntimeError("Session account was not verified")
               print("SESSION_ACCOUNT_VERIFIED", username)
               print("DISCOVERY_STAGE profile_resolution")
-              profile = instaloader.Profile.from_username(loader.context, "tinygiggleai07")
+              profile = instaloader.Post.from_shortcode(loader.context, "De4iEVhyYrV").owner_profile
+              if profile.username != "tinygiggleai07":
+                  raise RuntimeError("Reel owner does not match configured source")
               print("PROFILE_RESOLVED", profile.username)
               print("DISCOVERY_STAGE reels_feed")
               count = 0
