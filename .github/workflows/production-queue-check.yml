@@ -45,7 +45,7 @@ jobs:
       - name: Verify authenticated discovery without fallback
         run: |
           timeout 90s python -u - <<'PY'
-          import os
+          import os, re
           from pathlib import Path
           import instaloader
           session = Path(os.environ["INSTAGRAM_SESSION_FILE"])
@@ -58,9 +58,12 @@ jobs:
               if username != os.environ["INSTAGRAM_SESSION_USERNAME"]:
                   raise RuntimeError("Session account was not verified")
               print("SESSION_ACCOUNT_VERIFIED", username)
+              print("DISCOVERY_STAGE profile_resolution")
               profile = instaloader.Profile.from_username(loader.context, "tinygiggleai07")
+              print("PROFILE_RESOLVED", profile.username)
+              print("DISCOVERY_STAGE reels_feed")
               count = 0
-              for post in profile.get_posts():
+              for post in profile.get_reels():
                   if post.is_video:
                       print("AUTHENTICATED_REEL_DISCOVERED", post.shortcode)
                       count += 1
@@ -70,7 +73,11 @@ jobs:
                   raise RuntimeError("No video posts returned")
               print("AUTHENTICATED_DISCOVERY_PASSED", count)
           except Exception as exc:
-              raise SystemExit("AUTHENTICATED_DISCOVERY_FAILED: " + type(exc).__name__ + ". Session may be rejected or profile access restricted.")
+              message = str(exc)
+              codes = re.findall(r"(?<![0-9])(?:302|400|401|403|404|429|500|502|503)(?![0-9])", message)
+              reasons = [key for key in ("login_required", "challenge_required", "checkpoint_required", "feedback_required", "Please wait", "JSON", "redirect") if key in message]
+              print("DISCOVERY_ERROR_DETAILS", type(exc).__name__, "http_codes", codes, "reasons", reasons)
+              raise SystemExit("AUTHENTICATED_DISCOVERY_FAILED: " + type(exc).__name__)
           PY
       - name: Test production collection without publishing
         env:
