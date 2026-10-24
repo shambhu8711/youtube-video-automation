@@ -52,6 +52,21 @@ jobs:
           else
             echo "value=publish" >> "$GITHUB_OUTPUT"
           fi
+      - name: Explain test requirements
+        run: |
+          echo "## Instagram → YouTube automatic test" >> "$GITHUB_STEP_SUMMARY"
+          echo "Event: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Mode: ${{ steps.mode.outputs.value }}" >> "$GITHUB_STEP_SUMMARY"
+          for key in YOUTUBE_CLIENT_ID YOUTUBE_CLIENT_SECRET YOUTUBE_REFRESH_TOKEN; do
+            if [ -z "${!key}" ]; then
+              echo "::error::Missing $key secret"
+              exit 1
+            fi
+          done
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
       - name: Collect and validate daily videos
         if: steps.mode.outputs.value == 'collect' || steps.mode.outputs.value == 'bootstrap'
         run: |
@@ -107,6 +122,7 @@ jobs:
       - name: Report queue and upload state
         if: always()
         run: |
+          echo "## Test outcome" >> "$GITHUB_STEP_SUMMARY"
           if [ -f reel_queue/manifest.json ]; then
             python -c 'import json; x=json.load(open("reel_queue/manifest.json")); print("QUEUE_COUNT",len(x.get("reels",[])))'
           fi
