@@ -70,7 +70,7 @@ def publish():
  from google.auth.transport.requests import Request
  from googleapiclient.discovery import build
  from googleapiclient.http import MediaFileUpload
- creds=Credentials(token=None,refresh_token=os.environ["YOUTUBE_REFRESH_TOKEN"],token_uri="https://oauth2.googleapis.com/token",client_id=os.environ["YOUTUBE_CLIENT_ID"],client_secret=os.environ["YOUTUBE_CLIENT_SECRET"],scopes=["https://www.googleapis.com/auth/youtube.upload"])
+ creds=Credentials(token=None,refresh_token=os.environ["YOUTUBE_REFRESH_TOKEN"],token_uri="https://oauth2.googleapis.com/token",client_id=os.environ["YOUTUBE_CLIENT_ID"],client_secret=os.environ["YOUTUBE_CLIENT_SECRET"],scopes=["https://www.googleapis.com/auth/youtube.upload","https://www.googleapis.com/auth/youtube.readonly"])
  creds.refresh(Request())
  youtube=build("youtube","v3",credentials=creds,cache_discovery=False)
  body={"snippet":{"title":candidate["title"],"description":"Source: "+candidate["url"]+"\n#Shorts","categoryId":"23"},"status":{"privacyStatus":"public","selfDeclaredMadeForKids":False}}
@@ -91,6 +91,23 @@ def publish():
  except Exception as exc:
   print("PUBLICATION_VERIFICATION_PENDING",str(exc),file=sys.stderr)
  print("PUBLIC_UPLOAD_ACCEPTED",response["id"],"VERIFIED",record["publication_verified"])
+def verify_existing():
+ from google.oauth2.credentials import Credentials
+ from google.auth.transport.requests import Request
+ from googleapiclient.discovery import build
+ creds=Credentials(token=None,refresh_token=os.environ["YOUTUBE_REFRESH_TOKEN"],token_uri="https://oauth2.googleapis.com/token",client_id=os.environ["YOUTUBE_CLIENT_ID"],client_secret=os.environ["YOUTUBE_CLIENT_SECRET"],scopes=["https://www.googleapis.com/auth/youtube.readonly"])
+ creds.refresh(Request())
+ youtube=build("youtube","v3",credentials=creds,cache_discovery=False)
+ path=Path("state/instagram_uploads/De4iEVhyYrV.json")
+ record=json.loads(path.read_text())
+ items=youtube.videos().list(part="status,processingDetails",id=record["youtube_video_id"]).execute().get("items",[])
+ if not items: raise RuntimeError("Uploaded video was not returned by YouTube")
+ status=items[0].get("status",{})
+ processing=items[0].get("processingDetails",{}).get("processingStatus","unknown")
+ record.update(youtube_privacy=status.get("privacyStatus","unknown"),processing_status=processing,publication_verified=status.get("privacyStatus")=="public" and processing=="succeeded",verified_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
+ path.write_text(json.dumps(record,indent=2)+"\n")
+ print("EXISTING_VIDEO_VERIFICATION",json.dumps(record))
+ if not record["publication_verified"]: raise RuntimeError("Video is not yet public and successfully processed")
 def test():
  items=[{"id":"a","url":"https://www.instagram.com/reel/a/"},{"id":"b","url":"https://www.instagram.com/reel/b/"}]
  assert [x["id"] for x in discover(items,{"a"})]==["b"]
@@ -98,6 +115,6 @@ def test():
  assert len(discover(items,set(),limit=1))==1
  print("QUEUE_SELF_TEST_PASSED")
 if __name__=="__main__":
- p=argparse.ArgumentParser();p.add_argument("mode",choices=["collect","publish","self-test"]);args=p.parse_args()
- try: {"collect":collect,"publish":publish,"self-test":test}[args.mode]()
+ p=argparse.ArgumentParser();p.add_argument("mode",choices=["collect","publish","self-test","verify"]);args=p.parse_args()
+ try: {"collect":collect,"publish":publish,"self-test":test,"verify":verify_existing}[args.mode]()
  except Exception as exc: print("PIPELINE_FAILED",str(exc),file=sys.stderr);sys.exit(1)
