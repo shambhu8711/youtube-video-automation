@@ -1,5 +1,5 @@
 """Daily Reel queue and hourly YouTube publisher. Only publicly accessible, authorized Reels."""
-import argparse,json,os,subprocess,sys,datetime
+import argparse,json,os,subprocess,sys,datetime,time
 from pathlib import Path
 ROOT=Path("reel_queue")
 PROFILE="https://www.instagram.com/tinygiggleai07/"
@@ -89,14 +89,17 @@ def publish():
  
  # Verify YouTube reports the requested public visibility. Upload acceptance alone is not publication.
  try:
-  details=youtube.videos().list(part="status,processingDetails",id=response["id"]).execute().get("items",[])
-  if details:
-   status=details[0].get("status",{})
-   processing=details[0].get("processingDetails",{}).get("processingStatus","unknown")
-   record["youtube_privacy"]=status.get("privacyStatus","unknown")
-   record["processing_status"]=processing
-   record["publication_verified"]=status.get("privacyStatus")=="public" and processing=="succeeded"
-  Path("instagram_upload_record.json").write_text(json.dumps(record,indent=2))
+  for attempt in range(7):
+   details=youtube.videos().list(part="status,processingDetails",id=response["id"]).execute().get("items",[])
+   if details:
+    status=details[0].get("status",{})
+    processing=details[0].get("processingDetails",{}).get("processingStatus","unknown")
+    record["youtube_privacy"]=status.get("privacyStatus","unknown")
+    record["processing_status"]=processing
+    record["publication_verified"]=status.get("privacyStatus")=="public" and processing=="succeeded"
+   Path("instagram_upload_record.json").write_text(json.dumps(record,indent=2))
+   if record["publication_verified"] or record.get("processing_status") in ("failed","terminated"): break
+   if attempt < 6: time.sleep(10)
  except Exception as exc:
   print("PUBLICATION_VERIFICATION_PENDING",str(exc),file=sys.stderr)
  print("PUBLIC_UPLOAD_ACCEPTED",response["id"],"VERIFIED",record["publication_verified"])
