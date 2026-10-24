@@ -1,5 +1,9 @@
 name: Instagram Daily Queue and Hourly YouTube Intake
 on:
+  push:
+    paths:
+      - 'instagram_daily_queue.py'
+      - '.github/workflows/instagram-queue.yml'
   workflow_dispatch:
     inputs:
       mode:
@@ -39,7 +43,9 @@ jobs:
           EVENT_SCHEDULE: ${{ github.event.schedule }}
           INPUT_MODE: ${{ inputs.mode }}
         run: |
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "push" ]; then
+            echo "value=collect" >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "value=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           elif [ "$EVENT_SCHEDULE" = "35 18 * * *" ]; then
             echo "value=collect" >> "$GITHUB_OUTPUT"
