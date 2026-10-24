@@ -28,7 +28,7 @@ jobs:
     env:
       INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
       INSTAGRAM_SESSION_USERNAME: __sam__7399
-      INSTAGRAM_SESSION_FILE: ${{ runner.temp }}/instagram-session
+      INSTAGRAM_SESSION_FILE: /tmp/instagram-session-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
