@@ -61,9 +61,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          id=$(gh run list --workflow instagram-queue.yml --status success --limit 40 --json databaseId,event --jq '[.[] | select(.event=="schedule" or .event=="workflow_dispatch")][0].databaseId')
-          if [ -z "$id" ] || [ "$id" = "null" ]; then echo "No daily collection run"; exit 1; fi
-          gh run download "$id" --name instagram-daily-queue --dir reel_queue
+          found=0
+          for id in $(gh run list --workflow instagram-queue.yml --status success --limit 60 --json databaseId --jq '.[].databaseId'); do
+            if gh run download "$id" --name instagram-daily-queue --dir reel_queue 2>/dev/null; then
+              found=1
+              break
+            fi
+          done
+          if [ "$found" -ne 1 ]; then echo "No usable daily collection artifact"; exit 1; fi
       - name: Upload one private video
         if: steps.mode.outputs.value == 'publish'
         env:
