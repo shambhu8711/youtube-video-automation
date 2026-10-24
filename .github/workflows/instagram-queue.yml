@@ -48,7 +48,13 @@ jobs:
           fi
       - name: Collect and validate daily videos
         if: steps.mode.outputs.value == 'collect'
-        run: python instagram_daily_queue.py collect
+        run: |
+          for attempt in 1 2 3; do
+            if python instagram_daily_queue.py collect; then exit 0; fi
+            echo "::warning::Instagram collection failed (attempt $attempt)"
+            sleep 30
+          done
+          exit 1
       - name: Store today's videos as artifact
         if: steps.mode.outputs.value == 'collect'
         uses: actions/upload-artifact@v4
@@ -70,14 +76,37 @@ jobs:
               break
             fi
           done
-          if [ "$found" -ne 1 ]; then echo "No usable daily collection artifact"; exit 1; fi
+          if [ "$found" -ne 1 ]; then
+            echo "::warning::No daily collection artifact; attempting on-demand collection"
+            python instagram_daily_queue.py collect
+          fi
       - name: Upload one public video
         if: steps.mode.outputs.value == 'publish'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: python instagram_daily_queue.py publish
+        run: |
+          for attempt in 1 2 3; do
+            if python instagram_daily_queue.py publish; then exit 0; fi
+            # Never blindly retry an accepted upload: preserve its record first.
+            if [ -f instagram_upload_record.json ]; then
+              echo "::error::Upload was accepted but the step failed; do not retry blindly"
+              exit 1
+            fi
+            echo "::warning::Publishing attempt $attempt failed"
+            sleep 30
+          done
+          exit 1
+      - name: Report queue and upload state
+        if: always()
+        run: |
+          if [ -f reel_queue/manifest.json ]; then
+            python -c 'import json; x=json.load(open("reel_queue/manifest.json")); print("QUEUE_COUNT",len(x.get("reels",[])))'
+          fi
+          if [ -f instagram_upload_record.json ]; then
+            python -c 'import json; x=json.load(open("instagram_upload_record.json")); print("VIDEO_ID",x.get("youtube_video_id")); print("PUBLICATION_VERIFIED",x.get("publication_verified"))'
+          fi
       - name: Persist upload ID even after later failures
         if: always()
         run: |
