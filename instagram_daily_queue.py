@@ -20,8 +20,17 @@ def discover(entries,seen,limit=24):
 def collect():
  ROOT.mkdir(exist_ok=True)
  history={p.stem for p in Path("state/instagram_uploads").glob("*.json")}
- data=json.loads(run(["yt-dlp","--flat-playlist","--dump-single-json","--playlist-end","150",PROFILE]))
- entries=discover(data.get("entries") or [],history)
+ # Public Instagram profile enumeration may be blocked by Instagram.
+ # Allow a newline-separated, user-maintained list of exact Reel URLs as a fallback.
+ urls=[u.strip() for u in os.getenv("INSTAGRAM_REEL_URLS","").splitlines() if "/reel/" in u]
+ if urls:
+  entries=discover([{"id":u.split("/reel/")[1].split("/")[0].split("?")[0],"url":u} for u in urls],history)
+ else:
+  try:
+   data=json.loads(run(["yt-dlp","--flat-playlist","--dump-single-json","--playlist-end","150",PROFILE]))
+  except Exception as exc:
+   raise RuntimeError("Instagram profile enumeration unavailable; set INSTAGRAM_REEL_URLS to authorized Reel URLs. "+str(exc)) from exc
+  entries=discover(data.get("entries") or [],history)
  valid=[]
  for item in entries:
   try:
@@ -44,7 +53,7 @@ def publish():
  history={p.stem for p in Path("state/instagram_uploads").glob("*.json")}
  candidate=next((x for x in manifest["reels"] if x["id"] not in history and (ROOT/(x["id"]+".mp4")).is_file()),None)
  if not candidate:
-  print("QUEUE_EXHAUSTED");return
+  raise RuntimeError("QUEUE_EXHAUSTED: No unpublished video available in queue")
  for key in ("YOUTUBE_CLIENT_ID","YOUTUBE_CLIENT_SECRET","YOUTUBE_REFRESH_TOKEN"):
   if not os.getenv(key): raise RuntimeError("Missing secret: "+key)
  from google.oauth2.credentials import Credentials
