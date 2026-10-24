@@ -53,16 +53,25 @@ jobs:
             echo "value=publish" >> "$GITHUB_OUTPUT"
           fi
       - name: Explain test requirements
+        if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'test-upload'
         run: |
           echo "## Instagram → YouTube automatic test" >> "$GITHUB_STEP_SUMMARY"
           echo "Event: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
           echo "Mode: ${{ steps.mode.outputs.value }}" >> "$GITHUB_STEP_SUMMARY"
+          missing=0
           for key in YOUTUBE_CLIENT_ID YOUTUBE_CLIENT_SECRET YOUTUBE_REFRESH_TOKEN; do
             if [ -z "${!key}" ]; then
-              echo "::error::Missing $key secret"
-              exit 1
+              echo "::error::Missing GitHub Actions secret: $key"
+              echo "- ❌ Missing required YouTube secret: $key" >> "$GITHUB_STEP_SUMMARY"
+              missing=1
+            else
+              echo "- ✅ $key configured" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
+          if [ "$missing" -ne 0 ]; then
+            echo "YouTube publishing cannot work until the missing secrets are configured." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -138,7 +147,9 @@ jobs:
             python -c 'import json; x=json.load(open("reel_queue/manifest.json")); print("QUEUE_COUNT",len(x.get("reels",[])))'
           fi
           if [ -f instagram_upload_record.json ]; then
-            python -c 'import json; x=json.load(open("instagram_upload_record.json")); print("VIDEO_ID",x.get("youtube_video_id")); print("PUBLICATION_VERIFIED",x.get("publication_verified"))'
+            python -c 'import json,os; x=json.load(open("instagram_upload_record.json")); print("VIDEO_ID",x.get("youtube_video_id")); print("PUBLICATION_VERIFIED",x.get("publication_verified")); open(os.environ["GITHUB_STEP_SUMMARY"],"a").write("YouTube video: https://www.youtube.com/watch?v="+x["youtube_video_id"]+"\\n\\nPublication verified: "+str(x.get("publication_verified"))+"\\n")'
+          else
+            echo "No YouTube upload record created in this run." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Persist upload ID even after later failures
         if: always()
