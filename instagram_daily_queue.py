@@ -1,4 +1,4 @@
-"""Daily Reel queue and hourly YouTube publisher. Only publicly accessible, authorized Reels."""
+"""Daily Reel queue and two-hour YouTube publisher. Only publicly accessible, authorized Reels."""
 import argparse,json,os,subprocess,sys,datetime,time
 from pathlib import Path
 ROOT=Path("reel_queue")
@@ -30,7 +30,7 @@ def collect():
    # Instaloader enumerates profile posts; yt-dlp profile URLs are not reliable playlists.
    import instaloader
    loader=instaloader.Instaloader(download_pictures=False,download_videos=False,download_video_thumbnails=False,save_metadata=False,quiet=True,max_connection_attempts=1,request_timeout=20)
-   if os.getenv("INSTAGRAM_SESSION_USERNAME") and os.getenv("INSTAGRAM_SESSION_FILE"):
+   if os.getenv("INSTAGRAM_SESSION_USERNAME") and os.getenv("INSTAGRAM_SESSION_FILE") and Path(os.environ["INSTAGRAM_SESSION_FILE"]).is_file():
     loader.load_session_from_file(os.environ["INSTAGRAM_SESSION_USERNAME"],os.environ["INSTAGRAM_SESSION_FILE"])
    profile=instaloader.Post.from_shortcode(loader.context,"De4iEVhyYrV").owner_profile
    if profile.username!="tinygiggleai07": raise RuntimeError("Reel owner does not match configured source")
