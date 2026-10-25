@@ -18,8 +18,8 @@ on:
   schedule:
     # 00:05 IST = 18:35 UTC previous day
     - cron: '35 18 * * *'
-    # Every two hours at 00:15, 02:15, ..., 22:15 IST (UTC odd hours at :45)
-    - cron: '45 1-23/2 * * *'
+    # Every two hours at 00:15, 02:15, ..., 22:15 IST (UTC even hours at :45)
+    - cron: '45 */2 * * *'
 permissions:
   contents: write
   actions: read
