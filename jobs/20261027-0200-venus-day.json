@@ -1,0 +1,27 @@
+{
+  "job_key": "20261027-0200-venus-day",
+  "title": "Why a Day on Venus Is Longer Than Its Year #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Venus rotates extremely slowly. One full spin relative to distant stars takes about 243 Earth days, while an orbit around the Sun takes about 225 Earth days. Its rotation also runs opposite the direction of most planets. This makes the ordinary meaning of a day surprisingly tricky on Venus, since sunrise-to-sunrise time differs from one full rotation.",
+  "scenes": [
+    {
+      "text": "Rotation: about 243 Earth days",
+      "visual": "venus planet orbit"
+    },
+    {
+      "text": "Orbit: about 225 Earth days",
+      "visual": "venus planet orbit"
+    },
+    {
+      "text": "Rotation is retrograde",
+      "visual": "venus planet orbit"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "venus day"
+  ]
+}

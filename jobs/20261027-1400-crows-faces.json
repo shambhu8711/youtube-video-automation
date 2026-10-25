@@ -1,0 +1,27 @@
+{
+  "job_key": "20261027-1400-crows-faces",
+  "title": "How Crows Recognize Human Faces #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Research suggests some crows can learn to distinguish individual human faces and remember people associated with threatening experiences. Social learning may also help other birds respond to those cues. This does not mean every crow recognizes every person, but it highlights sophisticated learning and memory in birds often underestimated for their intelligence.",
+  "scenes": [
+    {
+      "text": "Faces can become learned cues",
+      "visual": "crow city portrait"
+    },
+    {
+      "text": "Memories influence reactions",
+      "visual": "crow city portrait"
+    },
+    {
+      "text": "Bird cognition is sophisticated",
+      "visual": "crow city portrait"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "crows faces"
+  ]
+}
