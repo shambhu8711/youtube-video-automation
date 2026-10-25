@@ -1,4 +1,5 @@
 name: Publish next Instagram Reel now
+# Recovery requested: publish the next unused Reel after schedule repair.
 on:
   push:
     paths: ['.github/workflows/instagram-publish-now.yml']
