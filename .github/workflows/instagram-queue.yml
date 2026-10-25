@@ -18,8 +18,8 @@ on:
   schedule:
     # 00:05 IST = 18:35 UTC previous day
     - cron: '35 18 * * *'
-    # Every two hours at 00:15, 02:15, ..., 22:15 IST (UTC even hours at :45)
-    - cron: '45 */2 * * *'
+    # Frequent recovery checks; gate permits one accepted upload per two hours.
+    - cron: '7,22,37,52 * * * *'
 permissions:
   contents: write
   actions: read
@@ -27,7 +27,34 @@ concurrency:
   group: instagram-queue-single-writer
   cancel-in-progress: false
 jobs:
+  cadence:
+    runs-on: ubuntu-latest
+    outputs:
+      due: ${{ steps.check.outputs.due }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check two-hour posting interval
+        id: check
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          due = True
+          if os.environ["EVENT_NAME"] == "schedule" and os.environ.get("EVENT_SCHEDULE") != "35 18 * * *":
+              path = Path("state/instagram_last_publish.json")
+              if path.is_file():
+                  stamp = datetime.datetime.fromisoformat(json.loads(path.read_text())["uploaded_at_utc"])
+                  due = (datetime.datetime.now(datetime.timezone.utc) - stamp).total_seconds() >= 7200
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("due=" + str(due).lower() + "\n")
+          print("POST_DUE", due)
+          PY
   queue:
+    needs: cadence
+    if: needs.cadence.outputs.due == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 55
     env:
@@ -209,6 +236,7 @@ jobs:
             git config user.name "youtube-automation[bot]"
             git config user.email "youtube-automation[bot]@users.noreply.github.com"
             git add state/instagram_uploads/
+            if [ -f state/instagram_last_publish.json ]; then git add state/instagram_last_publish.json; fi
             if ! git diff --cached --quiet; then
               git commit -m "Track Instagram intake [skip ci]"
               git pull --rebase origin main
