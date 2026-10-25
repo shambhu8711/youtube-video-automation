@@ -85,6 +85,9 @@ def publish():
  body={"snippet":{"title":candidate["title"],"description":"Source: "+candidate["url"]+"\n#Shorts","categoryId":"23"},"status":{"privacyStatus":"public","selfDeclaredMadeForKids":False}}
  response=youtube.videos().insert(part="snippet,status",body=body,media_body=MediaFileUpload(str(ROOT/(candidate["id"]+".mp4")),mimetype="video/mp4",resumable=True)).execute()
  record={"instagram_reel_id":candidate["id"],"youtube_video_id":response["id"],"source_url":candidate["url"],"upload_accepted":True,"privacy":"public","publication_verified":False}
+ record["uploaded_at_utc"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ Path("state").mkdir(exist_ok=True)
+ Path("state/instagram_last_publish.json").write_text(json.dumps({"uploaded_at_utc":record["uploaded_at_utc"],"youtube_video_id":response["id"]},indent=2))
  Path("instagram_upload_record.json").write_text(json.dumps(record,indent=2))
  
  # Verify YouTube reports the requested public visibility. Upload acceptance alone is not publication.
