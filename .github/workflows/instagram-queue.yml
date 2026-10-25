@@ -1,4 +1,4 @@
-name: Instagram Daily Queue and Hourly YouTube Intake
+name: Instagram Daily Queue and Two-Hour YouTube Intake
 on:
   push:
     paths:
@@ -18,8 +18,8 @@ on:
   schedule:
     # 00:05 IST = 18:35 UTC previous day
     - cron: '35 18 * * *'
-    # Hourly IST :15
-    - cron: '45 * * * *'
+    # Every two hours at 00:15, 02:15, ..., 22:15 IST (UTC even hours at :45)
+    - cron: '45 */2 * * *'
 permissions:
   contents: write
   actions: read
