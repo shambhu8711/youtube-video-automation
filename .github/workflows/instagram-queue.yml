@@ -109,28 +109,6 @@ jobs:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-      - name: Download and validate actual Instagram Reel for test
-        if: steps.mode.outputs.value == 'test-upload'
-        run: |
-          mkdir -p reel_queue
-          python - <<'PY'
-          import json, subprocess
-          from pathlib import Path
-          reel_id = "De4iEVhyYrV"
-          url = "https://www.instagram.com/reel/" + reel_id + "/"
-          if Path("state/instagram_uploads", reel_id + ".json").exists():
-              raise SystemExit("This Reel already has an upload record; refusing a duplicate test.")
-          subprocess.run(["yt-dlp", "--no-playlist", "--retries", "0", "--extractor-retries", "0", "--merge-output-format", "mp4", "--recode-video", "mp4", "-o", "reel_queue/" + reel_id + ".%(ext)s", url], check=True, timeout=240)
-          video = Path("reel_queue", reel_id + ".mp4")
-          if not video.is_file() or video.stat().st_size < 1024:
-              raise SystemExit("Instagram download did not produce a valid video.")
-          probe = json.loads(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type,width,height", "-of", "json", str(video)]))
-          stream = next((s for s in probe.get("streams", []) if s.get("codec_type") == "video"), None)
-          duration = float(probe.get("format", {}).get("duration", 0))
-          if not stream or not 0 < duration <= 180 or stream.get("height", 0) < stream.get("width", 0):
-              raise SystemExit("Downloaded Reel does not meet Shorts duration and aspect requirements.")
-          Path("reel_queue/manifest.json").write_text(json.dumps({"reels": [{"id": reel_id, "url": url, "title": "Tiny Giggle AI - Baby Comedy #Shorts"}]}))
-          PY
       - name: Collect and validate daily videos
         env:
           INSTAGRAM_REEL_URLS: ${{ vars.INSTAGRAM_REEL_URLS }}
@@ -150,9 +128,10 @@ jobs:
           path: reel_queue/
           retention-days: 3
           if-no-files-found: error
+      # Test uploads use the same queue as scheduled posts; never replay a fixed Reel.
       - name: Restore most recent collected queue
         id: restore
-        if: steps.mode.outputs.value == 'publish'
+        if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'test-upload'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -191,9 +170,6 @@ jobs:
           path: reel_queue/
           retention-days: 3
           if-no-files-found: error
-      - name: Clear old upload record for this run
-        if: steps.mode.outputs.value == 'test-upload'
-        run: rm -f instagram_upload_record.json
       - name: Upload one public video
         if: steps.mode.outputs.value == 'publish' || steps.mode.outputs.value == 'test-upload'
         env:
