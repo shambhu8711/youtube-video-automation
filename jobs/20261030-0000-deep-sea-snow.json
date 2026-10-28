@@ -1,0 +1,27 @@
+{
+  "job_key": "20261030-0000-deep-sea-snow",
+  "title": "Why It Snows Underwater #Shorts",
+  "description": "A concise educational explainer. #Shorts",
+  "script": "Marine snow is a continuous shower of tiny organic particles falling through the ocean. Dead plankton, waste, and other fragments sink from sunlit waters toward the deep sea. This slow fall transports carbon and provides food to animals living far below where sunlight reaches. It is not frozen water: the name describes the drifting appearance of the particles.",
+  "scenes": [
+    {
+      "text": "Particles fall from surface waters",
+      "visual": "deep ocean particles"
+    },
+    {
+      "text": "They feed deep-ocean life",
+      "visual": "deep ocean particles"
+    },
+    {
+      "text": "They transport carbon downward",
+      "visual": "deep ocean particles"
+    }
+  ],
+  "category_id": "27",
+  "tags": [
+    "Shorts",
+    "facts",
+    "education",
+    "deep sea snow"
+  ]
+}
